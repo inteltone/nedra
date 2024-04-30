@@ -1,0 +1,32 @@
+html,body {
+  block-size: 100%;
+}
+body {  
+  font-family: var(--ff-prim);
+  font-size: var(--fz-0);
+  line-height: var(--lh-t);
+  color: var(--clr-text);  
+}
+h1, .h1, h2, .h2 {font-family: var(--ff-sec);}
+h2, .h2 { font-size: 32px;	line-height: 1.1; }
+h3, .h3 { font-weight: var(--fw-b); }
+
+.container > * { grid-column: content; }
+ .container {
+ --minimum-content-padding: 16px;
+ --full-max-width: 1fr;
+ --content-max-width: 1600px;
+ --full: minmax( var(--minimum-content-padding), 1fr );
+ --content: min( var(--content-max-width), 100% - var(--minimum-content-padding) * 2 ); 
+ display: grid;
+ grid-template-columns: [full-start] var(--full) [content-start] var(--content) [content-end] var(--full) [full-end];
+ }  
+ .full { grid-column: full; }
+ .full-start { grid-column-start: full-start; }
+ .full-end { grid-column-end: full-end; } 
+ .content { grid-column: content; }
+ .content-start { grid-column-start: content-start; }
+ .content-end { grid-column-end: content-end; } 
+ .full-width { grid-column: full; }
+ .full-content, .full-content-nopad { grid-column: full; }
+ .full-content { padding-inline: var(--minimum-content-padding); }
