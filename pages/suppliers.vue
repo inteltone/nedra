@@ -49,7 +49,8 @@
 	.suppliers{
 		display: grid;
 		grid-template-columns: repeat(12,1fr);
-		gap: 91px 20px;		
+		gap: 91px 20px;
+		margin-block-start: var(--first-block-mbs);		
 		&__content{
 			grid-column: 5 / -1;
 			&>p+p{

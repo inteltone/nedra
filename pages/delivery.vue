@@ -52,23 +52,19 @@
 		&-desc > p + p{
 			margin-block-start: 16px;
 		}
+		& img{
+			inset-block-start: -60px;			
+		}
 		&:nth-child(1), &:nth-child(3){
-			grid-column: 5 / span 4;
-			img{
-				inset-block-start: -60px;
-			}
+			grid-column: 5 / span 4;			
 		}
 		&:nth-child(2){
-			grid-column: 9 / span 4;
-			img{
-				inset-block-start: -60px;
-			}
+			grid-column: 9 / span 4;			
 		}
 		&-img{
 			position: absolute;
 			inset-inline-start: 37px;			
 		}
 	}
-
 }
 </style>

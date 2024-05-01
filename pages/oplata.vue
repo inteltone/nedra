@@ -45,17 +45,14 @@
 		&-desc > p + p{
 			margin-block-start: 16px;
 		}
+		& img{
+			inset-block-start: -60px;			
+		}
 		&:first-child{
-			grid-column: 5 / span 4;
-			img{
-				inset-block-start: -35px;
-			}
+			grid-column: 5 / span 4;			
 		}
 		&:last-child{
-			grid-column: 9 / span 4;
-			img{
-				inset-block-start: -60px;
-			}
+			grid-column: 9 / span 4;			
 		}
 		&-img{
 			position: absolute;
