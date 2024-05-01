@@ -1,8 +1,6 @@
 <template>
 	<TheHeader />
-	<main class="main container">
-		<TheBreadcrum />
-		<ThePageTitle />		
+	<main class="main container">				
 		<slot></slot>
 	</main>
 	<TheFooter />

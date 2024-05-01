@@ -17,5 +17,9 @@ defineProps({
 	text-transform: uppercase;
 	border: none;
 	border-radius: 8px;
+	transition: background-color var(--tr);
+	&:hover,&:focus-visible{
+		background-color: var(--clr-orange-100);
+	}
 }
 </style>

@@ -44,13 +44,13 @@ function openDropdown() { isOpenedDropdown.value = !isOpenedDropdown.value }
 			</div>
 		</div>
 		<div class="header__mid">
-			<NuxtLink class="header__mid-logo" to="/"><img src="/assets/images/misc/logo.svg" alt=""></NuxtLink>
+			<NuxtLink class="header__mid-logo" to="/" title="На Главную"><img src="/assets/images/misc/logo.svg" alt="Логотип Nedra Parts"></NuxtLink>
 			<div class="header__mid-menu">
 				<NuxtLink class="link" to="/">VIN запрос</NuxtLink>
 				<NuxtLink class="link" to="/">О компании</NuxtLink>
-				<NuxtLink class="link" to="/">Оплата</NuxtLink>
-				<NuxtLink class="link" to="/">Доставка</NuxtLink>
-				<NuxtLink class="link" to="/">Поставщикам</NuxtLink>
+				<NuxtLink class="link" to="/oplata">Оплата</NuxtLink>
+				<NuxtLink class="link" to="/delivery">Доставка</NuxtLink>
+				<NuxtLink class="link" to="/suppliers">Поставщикам</NuxtLink>
 				<NuxtLink class="link" to="/">Бренды</NuxtLink>
 			</div>
 			<div class="header__mid-tel">

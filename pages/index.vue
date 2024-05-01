@@ -1,58 +1,51 @@
 <template>
-	<NuxtLayout>
-		<section class="payment">
-			<div class="payment__item">
-				<img class="payment__item-img" src="/assets/images/payment/money.png" alt="">
-				<h3 class="payment__item-title h3">Наличный расчёт</h3>
-				<div class="payment__item-desc">
-					<p>Заказ оплачивается наличными при оформлении заказав пункте выдачи. Вместе с бланком заказа выдаётся кассовый чек. Если способ оплаты не предложен, значит оплата при оформлении для выбранного способа доставки или вашего города недоступна.</p>					
-				</div>
+	<NuxtLayout>		
+		<ThePageTitle title="Главная" />
+		<div class="map">
+			<p class="map__title">Карта сайта</p>
+			<div class="map__list">
+				<NuxtLink to="/oplata">Оплата</NuxtLink>
+				<NuxtLink to="/delivery">Доставка</NuxtLink>
+				<NuxtLink to="/suppliers">Поставщикам</NuxtLink>
 			</div>
-			<div class="payment__item">
-				<img class="payment__item-img" src="/assets/images/payment/cards.png" alt="">
-				<h3 class="payment__item-title h3">Банковский перевод</h3>
-				<div class="payment__item-desc">
-					<p>Оплатите заказ в любом банке, действующим на территории России. Банк взимает комиссию за перевод3 - 7% от стоимости заказа. Срок зачисления денежных средств 2-3 рабочих дня.</p>					
-				</div>
-			</div>
-		</section>
+		</div>
 	</NuxtLayout>
 </template>
 <style lang="scss">
-.payment{
-	display: grid;
-	grid-template-columns: repeat(12,1fr);
-	gap: 0 20px;
-	padding-block-start: 30px;
-	&__item{
-		position: relative;
-		padding: 116px 37px 74px;
-		background-color: var(--clr-gray-25);
-		border-radius: 24px;
-		&-title{
-			margin-block-end: 16px;
-			font-size: 16px;
-		}
-		&-desc > p + p{
-			margin-block-start: 16px;
-		}
-		&:first-child{
-			grid-column: 5 / span 4;
-			img{
-				inset-block-start: -35px;
+.map{	
+	inline-size: max-content;
+	margin-block-start: 24px;
+	padding: 18px 24px;
+	border: 1px solid var(--clr-gray-100);
+	border-radius: 8px;
+	&__title{
+		margin-block-end: 12px;
+		padding-block-end: 6px;
+		text-transform: uppercase;
+		border-block-end: 1px solid var(--clr-gray-100);
+	}
+	&__list{
+		display: flex;
+		flex-direction: column;
+		gap: 8px 0;
+		counter-reset: pages;
+		a{
+			display: flex;
+			gap: 0 10px;
+			color: var(--clr-text);
+			transition: color var(--tr);
+			&:hover{
+				color: var(--clr-orange-100);
 			}
 		}
-		&:last-child{
-			grid-column: 9 / span 4;
-			img{
-				inset-block-start: -60px;
-			}
+		a::before {         
+			counter-increment: pages;
+			content: counter(pages)'. ';
 		}
-		&-img{
-			position: absolute;
-			inset-inline-start: 37px;			
+		a::after {			
+			content: '\276F';
+			margin-inline-start: auto;
 		}
 	}
-
 }
 </style>

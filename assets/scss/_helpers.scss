@@ -1,0 +1,39 @@
+.form-group{
+	display: grid;
+	place-items: center;
+	block-size: 48px;
+	padding: 12px 24px;
+	background-color: var(--clr-white);
+	border-radius: 8px;
+	label{
+		display: none;
+	}
+	input{
+		line-height: 1;
+		border: none;
+		&:focus-visible{
+			outline: none;
+		}
+		&::placeholder{
+			color: var(--clr-gray-100);
+		}
+		&:focus-visible::placeholder{
+			color: transparent;
+		}
+	}
+}
+textarea{
+	block-size: 146px;
+	padding: 12px 24px;
+	border: none;
+	border-radius: 8px;
+	&:focus-visible{
+		outline: none;
+	}
+	&::placeholder{
+		color: var(--clr-gray-100);
+	}
+	&:focus-visible::placeholder{
+		color: transparent;
+	}
+}

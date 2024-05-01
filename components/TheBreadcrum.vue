@@ -1,15 +1,15 @@
 <template>
-	<ul class="breadcrum">
-			<li class="breadcrum__item">
-				<NuxtLink to="/" class="breadcrum__link">Главная</NuxtLink>
-			</li>
-			<li class="breadcrum__item">
-				<span class="breadcrum__idle">Оплата</span>
-			</li>
-		</ul>
+	<ul class="breadcrums">
+		<li class="breadcrums__item">
+			<NuxtLink to="/" class="breadcrums__link">Главная</NuxtLink>
+		</li>
+		<li class="breadcrums__item">
+			<span class="breadcrums__idle">Оплата</span>
+		</li>
+	</ul>
 </template>
 <style lang="scss">
-.breadcrum{
+.breadcrums{
 	--mie: 4px;
 	display: flex;
 	gap: 0 var(--mie);
