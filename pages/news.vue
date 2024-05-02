@@ -12,47 +12,47 @@
 		<section class="news">			
 			<ul class="news__list">
 				<li class="news__list-item">
-					<NuxtLink class="news-single" to="/">
-						<div class="news-single__img">
+					<NuxtLink class="news-item" to="/">
+						<div class="news-item__img">
 							<img src="/assets/images/news/01.jpg" alt="Новость">
 						</div>
-						<time class="news-single__time">06.08.2024</time>
-						<h3 class="news-single__title h3">Открытие магазинов в 23 городах России!</h3>
-						<p class="news-single__text">Интернет-магазин запущен из Ростова-на-Дону</p>
-						<p class="news-single__link">Подробнее</p>
+						<time class="news-item__time">06.08.2024</time>
+						<h3 class="news-item__title h3">Открытие магазинов в 23 городах России!</h3>
+						<p class="news-item__text">Интернет-магазин запущен из Ростова-на-Дону</p>
+						<p class="news-item__link">Подробнее</p>
 					</NuxtLink>
 				</li>				
 				<li class="news__list-item">
-					<NuxtLink class="news-single" to="/">
-						<div class="news-single__img">
+					<NuxtLink class="news-item" to="/">
+						<div class="news-item__img">
 							<img src="/assets/images/news/01.jpg" alt="Новость">
 						</div>
-						<time class="news-single__time">06.08.2024</time>
-						<h3 class="news-single__title h3">Открытие магазинов в 23 городах России!</h3>
-						<p class="news-single__text">Интернет-магазин запущен из Ростова-на-Дону</p>
-						<p class="news-single__link">Подробнее</p>
+						<time class="news-item__time">06.08.2024</time>
+						<h3 class="news-item__title h3">Открытие магазинов в 23 городах России!</h3>
+						<p class="news-item__text">Интернет-магазин запущен из Ростова-на-Дону</p>
+						<p class="news-item__link">Подробнее</p>
 					</NuxtLink>
 				</li>				
 				<li class="news__list-item">
-					<NuxtLink class="news-single" to="/">
-						<div class="news-single__img">
+					<NuxtLink class="news-item" to="/">
+						<div class="news-item__img">
 							<img src="/assets/images/news/01.jpg" alt="Новость">
 						</div>
-						<time class="news-single__time">06.08.2024</time>
-						<h3 class="news-single__title h3">Открытие магазинов в 23 городах России!</h3>
-						<p class="news-single__text">Интернет-магазин запущен из Ростова-на-Дону</p>
-						<p class="news-single__link">Подробнее</p>
+						<time class="news-item__time">06.08.2024</time>
+						<h3 class="news-item__title h3">Открытие магазинов в 23 городах России!</h3>
+						<p class="news-item__text">Интернет-магазин запущен из Ростова-на-Дону</p>
+						<p class="news-item__link">Подробнее</p>
 					</NuxtLink>
 				</li>				
 				<li class="news__list-item">
-					<NuxtLink class="news-single" to="/">
-						<div class="news-single__img">
+					<NuxtLink class="news-item" to="/">
+						<div class="news-item__img">
 							<img src="/assets/images/news/01.jpg" alt="Новость">
 						</div>
-						<time class="news-single__time">06.08.2024</time>
-						<h3 class="news-single__title h3">Открытие магазинов в 23 городах России!</h3>
-						<p class="news-single__text">Интернет-магазин запущен из Ростова-на-Дону</p>
-						<p class="news-single__link">Подробнее</p>
+						<time class="news-item__time">06.08.2024</time>
+						<h3 class="news-item__title h3">Открытие магазинов в 23 городах России!</h3>
+						<p class="news-item__text">Интернет-магазин запущен из Ростова-на-Дону</p>
+						<p class="news-item__link">Подробнее</p>
 					</NuxtLink>
 				</li>				
 			</ul>
@@ -79,7 +79,7 @@
 		grid-column: 5 / -1;
 	}
 }
-.news-single{
+.news-item{
 	color: var(--clr-text);
 	&__img{
 		overflow: hidden;
@@ -113,9 +113,9 @@
 		text-decoration-line: underline;
   		text-underline-offset: 3px;
 		transition: color var(--tr);
-		  &:hover, &:focus-visible{		
+		&:hover, &:focus-visible{		
 			color: var(--clr-orange-100);
-	}
+		}
 	}	
 }
 </style>
