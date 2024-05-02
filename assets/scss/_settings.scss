@@ -9,7 +9,7 @@ body {
 }
 h1, .h1, h2, .h2 {font-family: var(--ff-sec);}
 h2, .h2 { font-size: 32px;	line-height: 1.1; }
-h3, .h3 { font-weight: var(--fw-b); }
+h3, .h3 { font-size: 16px; font-weight: var(--fw-b); }
 
 .container > * { grid-column: content; }
  .container {

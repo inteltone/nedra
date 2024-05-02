@@ -8,6 +8,7 @@
 				<NuxtLink to="/delivery">Доставка</NuxtLink>
 				<NuxtLink to="/suppliers">Поставщикам</NuxtLink>
 				<NuxtLink to="/shop">Интернет-магазин</NuxtLink>
+				<NuxtLink to="/news">Новости</NuxtLink>
 			</div>
 		</div>
 	</NuxtLayout>
