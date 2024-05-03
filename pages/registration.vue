@@ -73,18 +73,21 @@
 					block-size: 57px;
 					margin-inline-end: 20px;
 					padding-inline: 24px;
-					border: 1px solid var(--clr-gray-100);
+					border: 1px solid var(--clr-gray);
 					border-radius: 8px;
 					&:focus-visible{
 						outline: none;
 						border-color: var(--clr-black);
 					}
 					&::placeholder{
-						color: var(--clr-gray-100);
+						color: var(--clr-gray);
 					}
 					&:focus-visible::placeholder{
 						color: transparent;
 					}
+				}
+				.input-error{
+					color: var(--clr-gray);
 				}
 			}
 			.form-agreement{
