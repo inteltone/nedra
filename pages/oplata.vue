@@ -8,57 +8,79 @@
 				<span class="breadcrums__idle">Оплата</span>
 			</li>
 		</ul>
-		<ThePageTitle title="Оплата" />
-		<section class="payment">
-			<div class="payment__item">
-				<img class="payment__item-img" src="/assets/images/payment/money.png" alt="">
-				<h3 class="payment__item-title h3">Наличный расчёт</h3>
-				<div class="payment__item-desc">
-					<p>Заказ оплачивается наличными при оформлении заказав пункте выдачи. Вместе с бланком заказа выдаётся кассовый чек. Если способ оплаты не предложен, значит оплата при оформлении для выбранного способа доставки или вашего города недоступна.</p>					
+		<section class="com-block">
+			<ThePageTitle class="com-block__title" title="Оплата" />
+			<div class="com-block__content oplata">
+				<div class="com-card">
+					<div class="com-card__img">
+						<img src="/assets/images/payment/money.png" alt="">
+					</div>
+					<div class="com-card__content">
+						<h3 class="com-card__title h3">Наличный расчёт</h3>
+						<div class="com-card__desc">
+							<p>Заказ оплачивается наличными при оформлении заказав пункте выдачи. Вместе с бланком заказа выдаётся кассовый чек. Если способ оплаты не предложен, значит оплата при оформлении для выбранного способа доставки или вашего города недоступна.</p>
+						</div>
+					</div>
 				</div>
+				<div class="com-card">
+					<div class="com-card__img">
+						<img src="/assets/images/payment/cards.png" alt="">
+					</div>
+					<div class="com-card__content">
+						<h3 class="com-card__title h3">Банковский перевод</h3>
+						<div class="com-card__desc">
+							<p>Оплатите заказ в любом банке, действующим на территории России. Банк взимает комиссию за перевод3 - 7% от стоимости заказа. Срок зачисления денежных средств 2-3 рабочих дня.</p>
+						</div>
+					</div>
+				</div>						
 			</div>
-			<div class="payment__item">
-				<img class="payment__item-img" src="/assets/images/payment/cards.png" alt="">
-				<h3 class="payment__item-title h3">Банковский перевод</h3>
-				<div class="payment__item-desc">
-					<p>Оплатите заказ в любом банке, действующим на территории России. Банк взимает комиссию за перевод3 - 7% от стоимости заказа. Срок зачисления денежных средств 2-3 рабочих дня.</p>					
-				</div>
-			</div>
-		</section>
+		</section>		
 	</NuxtLayout>
 </template>
+
 <style lang="scss">
-.payment{
-	display: grid;
-	grid-template-columns: repeat(12,1fr);
-	gap: 0 20px;
-	padding-block-start: 30px;
-	&__item{
-		position: relative;
-		padding: 116px 37px 74px;
-		background-color: var(--clr-gray-25);
-		border-radius: 24px;
-		&-title{
+	.com-block{
+		display: grid;
+		grid-template-columns: repeat(12,1fr);
+		gap: 0 20px;
+		&__title{
+			grid-column: 1 / span 4;
+		}
+		&__content{
+			grid-column: 5 / -1;
+		}
+	}	
+	.oplata{		
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 20px;
+	}
+	.com-card{	
+		display: flex;
+		flex-direction: column;		
+		&__content{
+			flex-grow: 1;
+			margin-block-start: -130px;
+			padding: 116px 37px 74px;
+			background-color: var(--clr-gray-25);
+			border-radius: 24px;
+		}
+		&__title{
 			margin-block-end: 16px;
 			font-size: 16px;
-		}
-		&-desc > p + p{
+		}		
+		&__desc > p + p{
 			margin-block-start: 16px;
-		}
-		& img{
-			inset-block-start: -60px;			
-		}
-		&:first-child{
-			grid-column: 5 / span 4;			
-		}
-		&:last-child{
-			grid-column: 9 / span 4;			
-		}
-		&-img{
-			position: absolute;
-			inset-inline-start: 37px;			
+		}				
+		&__img{
+			overflow: hidden;
+			position: relative;
+			aspect-ratio: 1.1648;
+			inline-size: 219px;
+			margin-inline-start: 37px;
+			img{	
+				object-fit: cover;
+			}
 		}
 	}
-
-}
 </style>

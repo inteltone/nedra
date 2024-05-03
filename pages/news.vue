@@ -8,78 +8,78 @@
 				<span class="breadcrums__idle">Новости</span>
 			</li>
 		</ul>
-		<ThePageTitle title="Новости" />
-		<section class="news">			
-			<ul class="news__list">
-				<li class="news__list-item">
-					<NuxtLink class="news-item" to="/">
-						<div class="news-item__img">
-							<img src="/assets/images/news/01.jpg" alt="Новость">
-						</div>
-						<time class="news-item__time">06.08.2024</time>
-						<h3 class="news-item__title h3">Открытие магазинов в 23 городах России!</h3>
-						<p class="news-item__text">Интернет-магазин запущен из Ростова-на-Дону</p>
-						<p class="news-item__link">Подробнее</p>
-					</NuxtLink>
-				</li>				
-				<li class="news__list-item">
-					<NuxtLink class="news-item" to="/">
-						<div class="news-item__img">
-							<img src="/assets/images/news/01.jpg" alt="Новость">
-						</div>
-						<time class="news-item__time">06.08.2024</time>
-						<h3 class="news-item__title h3">Открытие магазинов в 23 городах России!</h3>
-						<p class="news-item__text">Интернет-магазин запущен из Ростова-на-Дону</p>
-						<p class="news-item__link">Подробнее</p>
-					</NuxtLink>
-				</li>				
-				<li class="news__list-item">
-					<NuxtLink class="news-item" to="/">
-						<div class="news-item__img">
-							<img src="/assets/images/news/01.jpg" alt="Новость">
-						</div>
-						<time class="news-item__time">06.08.2024</time>
-						<h3 class="news-item__title h3">Открытие магазинов в 23 городах России!</h3>
-						<p class="news-item__text">Интернет-магазин запущен из Ростова-на-Дону</p>
-						<p class="news-item__link">Подробнее</p>
-					</NuxtLink>
-				</li>				
-				<li class="news__list-item">
-					<NuxtLink class="news-item" to="/">
-						<div class="news-item__img">
-							<img src="/assets/images/news/01.jpg" alt="Новость">
-						</div>
-						<time class="news-item__time">06.08.2024</time>
-						<h3 class="news-item__title h3">Открытие магазинов в 23 городах России!</h3>
-						<p class="news-item__text">Интернет-магазин запущен из Ростова-на-Дону</p>
-						<p class="news-item__link">Подробнее</p>
-					</NuxtLink>
-				</li>				
-			</ul>
-			<BaseButton class="news__btn" text="Больше новостей" />
-		</section>
+		<section class="com-block">
+			<ThePageTitle class="com-block__title" title="Новости" />
+			<div class="com-block__content news">
+				<ul class="news__list">
+					<li class="news__list-item">
+						<NuxtLink class="news-item" to="/">
+							<div class="news-item__img">
+								<img src="/assets/images/news/01.jpg" alt="Новость">
+							</div>
+							<time class="news-item__time">06.08.2024</time>
+							<h3 class="news-item__title h3">Открытие магазинов в 23 городах России!</h3>
+							<p class="news-item__text">Интернет-магазин запущен из Ростова-на-Дону. Интернет-магазин запущен из Ростова-на-Дону. Интернет-магазин запущен из Ростова-на-Дону</p>
+							<p class="news-item__link">Подробнее</p>
+						</NuxtLink>
+					</li>				
+					<li class="news__list-item">
+						<NuxtLink class="news-item" to="/">
+							<div class="news-item__img">
+								<img src="/assets/images/news/01.jpg" alt="Новость">
+							</div>
+							<time class="news-item__time">06.08.2024</time>
+							<h3 class="news-item__title h3">Открытие магазинов в 23 городах России!</h3>
+							<p class="news-item__text">Интернет-магазин запущен из Ростова-на-Дону</p>
+							<p class="news-item__link">Подробнее</p>
+						</NuxtLink>
+					</li>				
+					<li class="news__list-item">
+						<NuxtLink class="news-item" to="/">
+							<div class="news-item__img">
+								<img src="/assets/images/news/01.jpg" alt="Новость">
+							</div>
+							<time class="news-item__time">06.08.2024</time>
+							<h3 class="news-item__title h3">Открытие магазинов в 23 городах России!</h3>
+							<p class="news-item__text">Интернет-магазин запущен из Ростова-на-Дону</p>
+							<p class="news-item__link">Подробнее</p>
+						</NuxtLink>
+					</li>				
+					<li class="news__list-item">
+						<NuxtLink class="news-item" to="/">
+							<div class="news-item__img">
+								<img src="/assets/images/news/01.jpg" alt="Новость">
+							</div>
+							<time class="news-item__time">06.08.2024</time>
+							<h3 class="news-item__title h3">Открытие магазинов в 23 городах России!</h3>
+							<p class="news-item__text">Интернет-магазин запущен из Ростова-на-Дону</p>
+							<p class="news-item__link">Подробнее</p>
+						</NuxtLink>
+					</li>				
+				</ul>
+				<BaseButton class="news__btn" text="Больше новостей" />
+			</div>
+		</section>		
 	</NuxtLayout>
 </template>
 <style lang="scss">
 .news{
 	display: grid;
-	grid-template-columns: repeat(12,1fr);
-	gap: 32px 20px;
-	margin-block-start: var(--first-block-mbs);
-	&__list{
-		grid-column: 5 / -1;
+	gap: 32px 0;
+	&__list{		
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 42px 20px;
-		&-item{
-
-		}
+		&-item{}
 	}
 	&__btn{
 		grid-column: 5 / -1;
 	}
 }
 .news-item{
+	display: flex;
+	flex-direction: column;
+	block-size: 100%;
 	color: var(--clr-text);
 	&__img{
 		overflow: hidden;
@@ -87,10 +87,10 @@
 		margin-block-end: 20px;
 		border-radius: 8px;
 		&:hover, &:focus-visible{
-		img{
-			transform: scale(1.05);
+			img{
+				transform: scale(1.05);
+			}
 		}
-	}
 		img{
 			inline-size: 100%;
 			block-size: 100%;
@@ -109,6 +109,7 @@
 		margin-block-end: 24px;
 	}
 	&__link{
+		margin-block-start: auto;
 		text-transform: uppercase;
 		text-decoration-line: underline;
   		text-underline-offset: 3px;

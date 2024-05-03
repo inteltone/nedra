@@ -8,57 +8,54 @@
 				<span class="breadcrums__idle">Поставщикам</span>
 			</li>
 		</ul>
-		<ThePageTitle title="Поставщикам" />
-		<section class="suppliers">
-			<div class="suppliers__content">
+		<section class="com-block com-block--suppliers">
+			<ThePageTitle class="com-block__title" title="Поставщикам" />
+			<div class="com-block__content suppliers">
+				<div class="suppliers__content">
 				<p>Мы рассматриваем сотрудничество с поставщиками и производителями как одно из основных направлений развития компании. Мы понимаем заинтересованность поставщиков в долгосрочном сотрудничестве и готовы предоставить все необходимые условия для такого сотрудничества.</p>
 				<p>Нам очень интересно сотрудничество с компаниями имеющие склады в регионах Российской Федерации. Мы готовы работать с постащиками имеющими даже небольшое наличие на собственных складах. Возможности нашей системы позволяют принимать к выгрузке прайс-листы любого формата. Если вас заинтересовало сотруднечество с нашей компанией пишите нам на email postav@carex-parts.com или заполните ниже форму</p>
 			</div>
-			<div class="suppliers__form-wrap">
-				<div class="suppliers__title-block">
-					<h2 class="suppliers__title h2">Заинтересовало сотрудничество?</h2>
-					<div class="suppliers__subtitle">
-						<p>Нам очень интересно сотрудничество с компаниями имеющие склады в регионах Российской Федерации. Мы готовы работать с постащиками имеющими даже небольшое наличие на собственных складах.</p>						
-					</div>
-				</div>
-				<form class="suppliers__form">
-					<div class="form-group">
-						<label for="name">Имя</label>
-						<input type="text" id="name" placeholder="Имя">
-					</div>
-					<div class="form-group">
-						<label for="lastname">Фамилия</label>
-						<input type="text" id="lastname" placeholder="Фамилия">
-					</div>
-					<div class="form-group">
-						<label for="email">Электронная почта</label>
-						<input type="email" id="email" placeholder="Электронная почта">
-					</div>
-					<div class="form-group">
-						<label for="tel">Телефон</label>
-						<input type="tel" id="tel" placeholder="Телефон">
-					</div>
-					<textarea name="message" placeholder="Сообщение"></textarea>
-					<BaseButton class="btn" text="Отправить" />
-				</form>
 			</div>
-		</section>
+		</section>			
+		<section class="suppliers-form-wrap ">
+			<div class="suppliers-title-block">
+				<h2 class="suppliers-title-block__title h2">Заинтересовало сотрудничество?</h2>
+				<div class="suppliers-title-block__subtitle">
+					<p>Нам очень интересно сотрудничество с компаниями имеющие склады в регионах Российской Федерации. Мы готовы работать с постащиками имеющими даже небольшое наличие на собственных складах.</p>						
+				</div>
+			</div>
+			<form class="suppliers-form">
+				<div class="form-group">
+					<label for="name">Имя</label>
+					<input type="text" id="name" placeholder="Имя">
+				</div>
+				<div class="form-group">
+					<label for="lastname">Фамилия</label>
+					<input type="text" id="lastname" placeholder="Фамилия">
+				</div>
+				<div class="form-group">
+					<label for="email">Электронная почта</label>
+					<input type="email" id="email" placeholder="Электронная почта">
+				</div>
+				<div class="form-group">
+					<label for="tel">Телефон</label>
+					<input type="tel" id="tel" placeholder="Телефон">
+				</div>
+				<textarea name="message" placeholder="Сообщение"></textarea>
+				<BaseButton class="suppliers-form__btn" text="Отправить" />
+			</form>
+		</section>		
 	</NuxtLayout>
 </template>
 <style lang="scss">
+	.com-block--suppliers{
+		margin-block-end: 90px;	
+	}
 	.suppliers{
-		display: grid;
-		grid-template-columns: repeat(12,1fr);
-		gap: 91px 20px;
-		margin-block-start: var(--first-block-mbs);		
-		&__content{
-			grid-column: 5 / -1;
-			&>p+p{
+		&__content > * + * {
 			margin-block-start: 20px;
-			}		
-		}
-		&__form-wrap{
-			grid-column: 1 / -1;
+		}		
+		&-form-wrap{			
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			gap: 0 20px;
@@ -66,18 +63,16 @@
 			background-color: var(--clr-gray-25);
 			border-radius: 24px;
 		}
-		&__title-block{
+		&-title-block{
 			max-inline-size: 523px;
-		}
-		&__title{
-			margin-block-end: 27px;
-		}
-		&__subtitle{
-			&>p+p{
-				margin-block-start: 20px;
+			&__title{
+				margin-block-end: 27px;
+			}
+			&__subtitle>p+p{
+				margin-block-start: 20px;				
 			}
 		}
-		&__form{
+		&-form{
 			--f-gap: 12px;
 			justify-self: end;
 			display: flex;
@@ -94,11 +89,16 @@
 			textarea{
 				flex-basis: 100%;
 			}
-			.btn{
+			&__btn{
 				block-size: 48px;
 				flex-basis: 100%;
-			}
-			
+				color: var(--clr-gray-100);
+				text-transform: unset;
+				transition: color var(--tr), background-color var(--tr);
+				&:hover{
+					color: var(--clr-white);
+				}
+			}			
 		}
 	}
 </style>

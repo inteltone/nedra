@@ -11,42 +11,43 @@
 				<span class="breadcrums__idle">Ростов-на-Дону</span>
 			</li>
 		</ul>
-		<ThePageTitle title="Интернет-магазин в Ростове-на-Дону" />
-		<section class="shop">
-			<div class="shop__map">
-				<img src="/assets/images/misc/map.png" alt="">
+		<section class="com-block com-block--shop">
+			<ThePageTitle class="com-block__title" title="Интернет-магазин в Ростове-на-Дону" />
+			<div class="com-block__content shop">
+				<div class="shop__map">
+					<img src="/assets/images/misc/map.png" alt="">
+				</div>
 			</div>
-			<ul class="shop__list">
-				<li class="shop__list-item">
-					<svg><use href='/assets/images/svg/sprite.svg#navigator'></use></svg>
-					<div class="text">
-						<p>Ростов-на-Дону, ул. Михаила Нагибина, д. 155</p>
-					</div>
-				</li>
-				<li class="shop__list-item">
-					<svg><use href='/assets/images/svg/sprite.svg#clock'></use></svg>
-					<div class="text">
-						<p><strong>Пн-Пт</strong> с 09:00 до 18:00</p>
-						<p><strong>Сб, Вс</strong> Выходной</p>
-					</div>
-				</li>
-				<li class="shop__list-item">
-					<svg><use href='/assets/images/svg/sprite.svg#tel'></use></svg>
-					<div class="text">
-						<p><a href="tel:+78004971880">+7 800 497 18 80</a></p>
-						<p><a href="mail:ysa@carex-parts.com">ysa@carex-parts.com</a></p>
-					</div>
-				</li>
-			</ul>
 		</section>
+		<ul class="shop__list">
+			<li class="shop__list-item">
+				<svg><use href='/assets/images/svg/sprite.svg#navigator'></use></svg>
+				<div class="text">
+					<p>Ростов-на-Дону, ул. Михаила Нагибина, д. 155</p>
+				</div>
+			</li>
+			<li class="shop__list-item">
+				<svg><use href='/assets/images/svg/sprite.svg#clock'></use></svg>
+				<div class="text">
+					<p><strong>Пн-Пт</strong> с 09:00 до 18:00</p>
+					<p><strong>Сб, Вс</strong> Выходной</p>
+				</div>
+			</li>
+			<li class="shop__list-item">
+				<svg><use href='/assets/images/svg/sprite.svg#tel'></use></svg>
+				<div class="text">
+					<p><a href="tel:+78004971880">+7 800 497 18 80</a></p>
+					<p><a href="mail:ysa@carex-parts.com">ysa@carex-parts.com</a></p>
+				</div>
+			</li>
+		</ul>
 	</NuxtLayout>
 </template>
 <style lang="scss">
-.shop{
-	display: grid;
-	grid-template-columns: repeat(12,1fr);
-	gap: 135px 20px;
-	margin-block-start: calc(var(--first-block-mbs) * 2);
+.com-block--shop{
+	margin-block-end: 135px;
+}
+.shop{	
 	&__map{
 		grid-column: 5 / -1;
 		overflow: hidden;
@@ -57,8 +58,7 @@
 			block-size: 100%;
 		}
 	}
-	&__list{
-		grid-column: 1 / -1;
+	&__list{		
 		display: grid;
 		grid-template-columns: repeat(3,1fr);
 		gap: 20px;
@@ -128,8 +128,7 @@
 				&::after{
 					inset-inline-end: 0;
 					border-inline-end: 1px solid var(--clr-black);				
-				}
-				
+				}				
 			}
 		}
 	}

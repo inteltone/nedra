@@ -245,6 +245,7 @@ function openDropdown() { isOpenedDropdown.value = !isOpenedDropdown.value }
 		padding: 16px 26px;
 		background-color: var(--clr-orange-100);
 		border-radius: 8px;
+		
 		&-burger{
 			display: flex;
 			gap: 0 12px;
@@ -343,6 +344,11 @@ function openDropdown() { isOpenedDropdown.value = !isOpenedDropdown.value }
 					block-size: 24px;
 				}
 			}
+		}
+	}
+	&.inactive{
+		.header__btm{
+			background-color: var(--clr-gray-100);
 		}
 	}
 }

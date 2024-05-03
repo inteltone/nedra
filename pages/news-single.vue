@@ -35,7 +35,7 @@
 							</div>
 							<time class="news-item__time">06.08.2024</time>
 							<h3 class="news-item__title h3">Открытие магазинов в 23 городах России!</h3>
-							<p class="news-item__text">Интернет-магазин запущен из Ростова-на-Дону</p>
+							<p class="news-item__text">Интернет-магазин запущен из Ростова-на-Дону. Интернет-магазин запущен из Ростова-на-Дону.</p>
 							<p class="news-item__link">Подробнее</p>
 						</NuxtLink>
 					</li>				
