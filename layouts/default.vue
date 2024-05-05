@@ -4,6 +4,7 @@
 		<slot></slot>
 	</main>
 	<TheFooter />
+	<PopupAuthorization />
 </template>
 <style lang="scss">
 .main{

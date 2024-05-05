@@ -25,19 +25,19 @@
 				</div>
 			</div>
 			<form class="suppliers-form">
-				<div class="form-group">
+				<div class="form-group form-group--suppliers">
 					<label for="name">Имя</label>
 					<input type="text" id="name" placeholder="Имя">
 				</div>
-				<div class="form-group">
+				<div class="form-group form-group--suppliers">
 					<label for="lastname">Фамилия</label>
 					<input type="text" id="lastname" placeholder="Фамилия">
 				</div>
-				<div class="form-group">
+				<div class="form-group form-group--suppliers">
 					<label for="email">Электронная почта</label>
 					<input type="email" id="email" placeholder="Электронная почта">
 				</div>
-				<div class="form-group">
+				<div class="form-group form-group--suppliers">
 					<label for="tel">Телефон</label>
 					<input type="tel" id="tel" placeholder="Телефон">
 				</div>
@@ -79,12 +79,20 @@
 			flex-wrap: wrap;
 			gap: var(--f-gap);
 			max-inline-size: 641px;
-			inline-size: 100%;
-			& input{
-				inline-size: 100%;
-			}
+			inline-size: 100%;			
 			.form-group{
 				flex: 1 1 calc(50% - var(--f-gap) / 2);
+				input{
+					inline-size: 100%;
+					&:focus-visible{
+						border: 1px solid var(--clr-black);
+					}
+				}				
+			}
+			.form-group--suppliers{
+				input{
+					border: none;
+				}
 			}
 			textarea{
 				flex-basis: 100%;

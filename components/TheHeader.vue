@@ -1,5 +1,9 @@
 <script setup>
-let isLogged = ref(false)
+const isPopupAuth = useAuthDialog()
+const showPopup = () => {
+	isPopupAuth.value = !isPopupAuth.value		
+}
+let isLogged = ref(true)
 function login(){	isLogged.value = !isLogged.value }
 const CITIES = ['Ростов-на-Дону','Липецк','Воронеж','Орел','Тула']
 const cities = ref(CITIES)
@@ -76,15 +80,15 @@ function openDropdown() { isOpenedDropdown.value = !isOpenedDropdown.value }
 						<svg><use href='/assets/images/svg/sprite.svg#message'></use></svg>
 						<span>Связь с менеджером</span>
 					</NuxtLink>
-					<NuxtLink to="/" class="link user" @click="login">
+					<NuxtLink to="/" class="link user">
 						<svg><use href='/assets/images/svg/sprite.svg#login'></use></svg>
 						<span>Даниил С.</span>
 					</NuxtLink>
 				</div>
-				<NuxtLink v-else to="/" class="link in" @click="login">
+				<button v-else class="link in" @click="showPopup">
 					<svg><use href='/assets/images/svg/sprite.svg#login'></use></svg>
 					<span>Войти на сайт</span>
-				</NuxtLink>				
+				</button>				
 			</div>
 			<NuxtLink to="/" class="header__btm-basket">
 				<div class="counter-wrap">
