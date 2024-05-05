@@ -4,6 +4,48 @@ let last_name = ref('')
 let password = ref('')
 let confirm_password = ref('')
 let tel = ref('')
+
+const focusTel = () => {
+	if (tel.value.length === 0) {		
+		tel.value = '+7'		
+	}	
+}
+const inputTel = () => {
+	if (tel.value.length > 12) {	
+		replaceLetters()	
+		if(tel.value.length === 12) return	
+		tel.value = tel.value.slice(0, -1)
+		return
+	}
+	if (tel.value.length === 0 || tel.value.length === 1) {
+		tel.value = '+7'
+		return
+	}
+	if (tel.value.indexOf('+') !== 0) {
+		let arr = Array.from(tel.value)		
+		arr.shift()		
+		tel.value = arr.join('')
+		return
+	}		
+	if (tel.value.indexOf('7') !== 1) {
+		let arr = Array.from(tel.value)
+		arr = arr.slice(3)
+		tel.value = '+7' + arr.join('')
+		return
+	}		
+	if (tel.value.indexOf('+') !== 0 && tel.value.indexOf('7') !== 1) {
+		tel.value = '+7'
+		return
+	}			
+	replaceLetters()
+	validation()
+	function replaceLetters() {
+		let arr = Array.from(tel.value)
+		arr = arr.slice(2)
+		let str = arr.join('')
+		tel.value = '+7' + str.replace(/[^\d.-]/g, '')
+	}
+}
 let email = ref('')
 let type_password = ref('password')
 let type_confirm_password = ref('password')
@@ -15,7 +57,7 @@ const showConfirmPassword = ()=>{
 }
 let checked = ref(false)
 let disabled = ref(true)
-function validation(){
+function validation(){ 
 	if (name.value.length === 0) {
 		disabled.value = true		
 		return
@@ -29,6 +71,10 @@ function validation(){
 		return
 	}
 	if (confirm_password.value !== password.value) {
+		disabled.value = true
+		return
+	}
+	if (tel.value.length < 12) {
 		disabled.value = true
 		return
 	}
@@ -82,8 +128,12 @@ function validation(){
 						</div>
 						<div class="input-group">
 							<label for="tel">Телефон</label>
-							<input type="text" id="tel" pattern="+[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" placeholder="+7 800 494 17 18">
-							<div class="input-error">
+							<input class="inputTelReg" type="text" id="tel" placeholder="+7 800 494 17 18"
+								v-model="tel" 
+								@focus="focusTel"
+								@input="inputTel"
+							>
+							<div class="input-error" v-show="tel.length < 12">
 								Необходим для отслеживания и получения заказов
 							</div>
 						</div>

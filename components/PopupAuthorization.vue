@@ -1,6 +1,6 @@
 <script setup>
 import { VNativeDialog } from "vue-native-dialog"
-let isPopupAuth = useAuthDialog()
+let isOpenedPopupAuth = useAuthDialog()
 let name = ref('')
 let password = ref('')
 let typePassword = ref('password')
@@ -24,13 +24,12 @@ const closeBackDrop = (e) => {
 		e.clientY < dialogDimensions.top ||
 		e.clientY > dialogDimensions.bottom
 	) {
-		dialog.close()
-		isPopupAuth.value = false
+		isOpenedPopupAuth.value = false
 	}
 }
 </script>
 <template>
-	<v-native-dialog class="popup" :open="isPopupAuth" @click="closeBackDrop" data-auth>
+	<v-native-dialog class="popup" :open="isOpenedPopupAuth" @click="closeBackDrop" data-auth>
 		<div class="popup__inner">
 			<p class="popup__title h2">Авторизация</p>
 			<form class="popup__form">
@@ -44,11 +43,11 @@ const closeBackDrop = (e) => {
 					<span class="icon-eye" @click="toggleTypePassword"></span>
 				</div>
 				<div class="popup__form-extra">
-					<NuxtLink to="/">Забыли пароль?</NuxtLink>
-					<NuxtLink to="/">Зарегистрироваться</NuxtLink>
+					<NuxtLink to="/" @click="isOpenedPopupAuth=false">Забыли пароль?</NuxtLink>
+					<NuxtLink to="/registration" @click="isOpenedPopupAuth=false">Зарегистрироваться</NuxtLink>
 				</div>
 				<BaseButton class="popup__form-btn" text="Войти" 
-					@click.stop="isPopupAuth=false" 
+					@click="isOpenedPopupAuth=false" 
 					:disabled="disabledBtn" 
 				/>
 			</form>

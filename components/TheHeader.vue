@@ -1,7 +1,7 @@
 <script setup>
-const isPopupAuth = useAuthDialog()
+const isOpenedPopupAuth = useAuthDialog()
 const showPopup = () => {
-	isPopupAuth.value = !isPopupAuth.value		
+	isOpenedPopupAuth.value = !isOpenedPopupAuth.value		
 }
 let isLogged = ref(true)
 function login(){	isLogged.value = !isLogged.value }
