@@ -12,6 +12,7 @@
 				<NuxtLink to="/news-single">Страница новости</NuxtLink>
 				<NuxtLink to="/registration">Регистрация</NuxtLink>
 				<NuxtLink to="/search-artikul">Поиск по артикулу</NuxtLink>
+				<NuxtLink to="/search-vin-brands">Оригинальный каталог</NuxtLink>
 			</div>
 		</div>
 	</NuxtLayout>
