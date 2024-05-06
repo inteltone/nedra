@@ -102,16 +102,22 @@ function openDropdown() { isOpenedDropdown.value = !isOpenedDropdown.value }
 </template>
 <style lang="scss">
 .header{	
-	position: relative;
-	gap: 12px 0;
-	padding-block-start: 33px;
+	--pad-bs: 33px;
+	--top-bz: 24px;
+	--mid-bz: 75px;
+	--gap: 12px;
+	position: sticky;
+	z-index: 1;
+	top: calc(-1 * (var(--pad-bs) + var(--top-bz) + var(--mid-bz) + var(--gap) * 2));
+	gap: var(--gap) 0;
+	padding-block-start: var(--pad-bs);
 	border-radius: 0 0 var(--header-r) var(--header-r);
 	&__top{
 		position: relative;
 		display: grid;
 		grid-template-columns: 250px 1fr 520px;
 		gap: 0 20px;
-		block-size: 24px;
+		block-size: var(--top-bz);
 		&-select{
 			flex-grow: 0;
 			display: flex;
@@ -209,6 +215,7 @@ function openDropdown() { isOpenedDropdown.value = !isOpenedDropdown.value }
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		block-size: var(--mid-bz);
 		&-logo{
 			inline-size: 188px;
 			block-size: 75px;

@@ -68,6 +68,8 @@ textarea{
 
 // ------- BUTTONS ------------------
 .btn{
+	overflow: hidden;
+	position: relative;
 	display: grid;
 	place-items: center;
 	block-size: 57px;
@@ -85,6 +87,10 @@ textarea{
 		color: var(--clr-text);
 		background-color: var(--clr-gray-100);
 		cursor: not-allowed;
+	}
+	span{
+		position: relative;
+		z-index: 1;
 	}
 }
 

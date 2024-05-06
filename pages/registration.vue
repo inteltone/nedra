@@ -7,9 +7,14 @@ let type_password = ref('password') // для смены типа поля па�
 let type_confirm_password = ref('password') // для смены типа поля подтв пароля
 let tel = ref('') // поле телефон
 let email = ref('') // поле email
-let isValidatedEmail = ref(true) // для скрытия подсказки для email и общей валидации формы
+let isValidatedEmail = ref(true) // для общей валидации формы
 let checked = ref(false) // чекбокс
 let disabled = ref(true) // кнопка ЗАРЕГИСТРИРОВАТЬСЯ
+let fields = ref(7)
+let counter = ref(0) // считает число полей прошедших валидацию
+let percent = computed(() => {
+	return -100 + 100 / fields.value * counter.value
+})
 // --- валидация паролей -----
 const showPassword = ()=>{
 	type_password.value = type_password.value === 'password' ? 'text' : 'password'	
@@ -89,7 +94,6 @@ function inputEmail() { // возвращает true / false
 	// если после точки меньше двух знаков
 	let indexDot = email.value.indexOf('.')
 	let strDot = email.value.slice(indexDot + 1)
-	console.log(strDot,strDot.length)
 	if (strDot.length < 2) {
 		isValidatedEmail.value = true
 		validation()
@@ -99,37 +103,35 @@ function inputEmail() { // возвращает true / false
 	validation()
 }
 // --- валидация всех полей формы -----
-function validation(){ 
-	if (name.value.length === 0) {
-		disabled.value = true		
-		return
+function validation() { 
+	counter.value = 0
+	disabled.value = true
+	if (name.value.length !== 0) {
+		counter.value += 1
 	}
-	if (last_name.value.length === 0) {
-		disabled.value = true
-		return
+	if (last_name.value.length !== 0) {
+		counter.value += 1
 	}
-	if (password.value.length < 6) {
-		disabled.value = true
-		return
+	if (password.value.length > 5) {
+		counter.value += 1
+	}	
+	if (confirm_password.value.length > 5 && confirm_password.value === password.value) {
+		counter.value += 1
 	}
-	if (confirm_password.value !== password.value) {
-		disabled.value = true
-		return
+	if (tel.value.length === 12) {
+		counter.value += 1
 	}
-	if (tel.value.length < 12) {
-		disabled.value = true
-		return
+	if (isValidatedEmail.value === false) {
+		counter.value += 1
+	}	
+	if (checked.value === true) {
+		counter.value += 1
 	}
-	if (isValidatedEmail.value === true) {
-		disabled.value = true
-		return
+	if (counter.value === fields.value) {		
+		disabled.value = false
 	}
-	if (checked.value !== true) {
-		disabled.value = true
-		return
-	}
-	disabled.value = false	
 }
+
 </script>
 <template>
 	<NuxtLayout >		
@@ -140,35 +142,50 @@ function validation(){
 					<div class="form-block">
 						<div class="input-group">
 							<label for="name">Имя</label>
-							<input type="text" id="name" placeholder="Имя" v-model="name" @input="validation">
-							<div class="input-error" v-show="name.length === 0">
+							<input type="text" id="name" placeholder="Имя" 
+								v-model="name" 
+								@input="validation"
+								:class="{validated: name.length > 0}"
+							>
+							<div class="input-hint">
 								Введите корректное имя. Потребуется при получении заказа
 							</div>
 						</div>
 						<div class="input-group">
 							<label for="lastname">Фамилия</label>
-							<input type="text" id="lastname" placeholder="Фамилия" v-model="last_name" @input="validation">
-							<div class="input-error" v-show="last_name.length === 0">
+							<input type="text" id="lastname" placeholder="Фамилия" 
+								v-model="last_name" 
+								@input="validation"
+								:class="{validated: last_name.length > 0}"
+							>
+							<div class="input-hint">
 								Введите корректную  фамилию. Потребуется при получении заказа
 							</div>
 						</div>
 						<div class="input-group">
 							<label for="password">Пароль</label>
 							<div class="password">
-								<input :type="type_password" id="password" placeholder="Пароль" v-model="password" @input="validation">
+								<input :type="type_password" id="password" placeholder="Пароль" 
+									v-model="password" 
+									@input="validation"
+									:class="{validated: password.length > 5, invalidated: password.length > 0 && password.length < 6}"
+								>
 								<span class="icon-eye" @click="showPassword"></span>
 							</div>
-							<div class="input-error" v-show="password.length < 7">
+							<div class="input-hint">
 								Минимальная длина пароля — 6 символов
 							</div>
 						</div>
 						<div class="input-group">
 							<label for="confirm-password">Подтверждение пароля</label>
 							<div class="password">
-								<input :type="type_confirm_password" id="confirm-password" placeholder="Пароль" v-model="confirm_password" @input="validation">
+									<input :type="type_confirm_password" id="confirm-password" placeholder="Пароль" v-model="confirm_password" 
+									@input="validation"
+									:class="{validated: password === confirm_password, invalidated: password !== confirm_password}"
+								>
 								<span class="icon-eye" @click="showConfirmPassword"></span>
 							</div>
-							<div class="input-error" v-show="confirm_password !== password || password.length < 6">
+							<div class="input-hint">
 								Подтвердите пароль
 							</div>
 						</div>
@@ -178,8 +195,9 @@ function validation(){
 								v-model="tel" 
 								@focus="focusTel"
 								@input="inputTel"
+								:class="{validated: tel.length === 12, invalidated: tel.length > 2 && tel.length < 12 }"
 							>
-							<div class="input-error" v-show="tel.length < 12">
+							<div class="input-hint">
 								Необходим для отслеживания и получения заказов
 							</div>
 						</div>
@@ -188,8 +206,9 @@ function validation(){
 							<input type="email" id="email" placeholder="@yandex.ru" 
 								v-model="email"
 								@input="inputEmail"
+								:class="{validated: isValidatedEmail === false, invalidated: isValidatedEmail === true && email.length > 0}"
 							>
-							<div class="input-error" v-show="isValidatedEmail">
+							<div class="input-hint">
 								Необходим для отслеживания и получения заказов
 							</div>
 						</div>
@@ -203,7 +222,11 @@ function validation(){
 							<p>С содержанием <NuxtLink class="link" to="/">Политики в отношении обработки персональных данных</NuxtLink> ознакомлен.</p>
 						</div>
 					</div>
-					<BaseButton class="registration__form-btn" text="Зарегистрироваться" :disabled="disabled" />
+					<BaseButton class="registration__form-btn" text="Зарегистрироваться" 
+						:disabled="disabled" 
+						:style="`--offset-x: ${percent}%`"
+						:class="{active: counter > 0, hideBeforeElem: counter === fields}"
+					/>
 				</form>
 			</div>
 		</section>		
@@ -254,8 +277,14 @@ function validation(){
 				&:focus-visible::placeholder{
 					color: transparent;
 				}
+				&.validated{
+					border-color: var(--clr-black);
+				}
+				&.invalidated{
+					border-color: var(--clr-orange-100);
+				}
 			}
-			.input-error{
+			.input-hint{
 				color: var(--clr-gray);				
 			}
 			.password{
@@ -336,7 +365,28 @@ function validation(){
 			}
 		}
 		&-btn{
-			margin-inline-start: calc(var(--label-mie) + var(--label-w));			
+			--offset-x: -100%;			
+			margin-inline-start: calc(var(--label-mie) + var(--label-w));
+			&::before{
+				content: '';
+				position: absolute;
+				z-index: 0;
+				inset: 0;
+				transform: translateX(var(--offset-x));
+				background-color: var(--clr-orange-100);
+				border-radius: 8px;
+				transition: transform var(--tr);
+			}
+			&.active{
+				color: var(--clr-white);
+				background-color: var(--clr-black);
+			}
+			&.hideBeforeElem{
+				&::before{
+					opacity: 0;
+					transition: opacity var(--tr) .3s;
+				}
+			}
 		}
 	}	
 }	
