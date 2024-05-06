@@ -68,6 +68,7 @@ textarea{
 
 // ------- BUTTONS ------------------
 .btn{
+	--offset-x: -100%;
 	overflow: hidden;
 	position: relative;
 	display: grid;
@@ -80,7 +81,7 @@ textarea{
 	border: none;
 	border-radius: 8px;
 	transition: background-color var(--tr);
-	&:hover,&:focus-visible{
+	&:not(:disabled):hover,&:not(:disabled):focus-visible{
 		background-color: var(--clr-orange-100);
 	}
 	&:disabled{
@@ -91,6 +92,26 @@ textarea{
 	span{
 		position: relative;
 		z-index: 1;
+	}
+	&::before{
+		content: '';
+		position: absolute;
+		z-index: 0;
+		inset: 0;
+		transform: translateX(var(--offset-x));
+		background-color: var(--clr-orange-100);
+		border-radius: 8px;
+		transition: transform var(--tr);
+	}
+	&.active{
+		color: var(--clr-white);
+		background-color: var(--clr-black);
+	}
+	&.hideBeforeElem{
+		&::before{
+			opacity: 0;
+			transition: opacity var(--tr) .3s;
+		}
 	}
 }
 

@@ -131,7 +131,6 @@ function validation() {
 		disabled.value = false
 	}
 }
-
 </script>
 <template>
 	<NuxtLayout >		
@@ -364,29 +363,8 @@ function validation() {
 				}
 			}
 		}
-		&-btn{
-			--offset-x: -100%;			
+		&-btn{						
 			margin-inline-start: calc(var(--label-mie) + var(--label-w));
-			&::before{
-				content: '';
-				position: absolute;
-				z-index: 0;
-				inset: 0;
-				transform: translateX(var(--offset-x));
-				background-color: var(--clr-orange-100);
-				border-radius: 8px;
-				transition: transform var(--tr);
-			}
-			&.active{
-				color: var(--clr-white);
-				background-color: var(--clr-black);
-			}
-			&.hideBeforeElem{
-				&::before{
-					opacity: 0;
-					transition: opacity var(--tr) .3s;
-				}
-			}
 		}
 	}	
 }	
