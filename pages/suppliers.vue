@@ -8,9 +8,9 @@
 				<span class="breadcrums__idle">Поставщикам</span>
 			</li>
 		</ul>
-		<section class="com-block com-block--suppliers">
-			<ThePageTitle class="com-block__title" title="Поставщикам" />
-			<div class="com-block__content suppliers">
+		<section class="columns-2 columns-2--suppliers">
+			<ThePageTitle class="columns-2__title" title="Поставщикам" />
+			<div class="columns-2__content suppliers">
 				<div class="suppliers__content">
 				<p>Мы рассматриваем сотрудничество с поставщиками и производителями как одно из основных направлений развития компании. Мы понимаем заинтересованность поставщиков в долгосрочном сотрудничестве и готовы предоставить все необходимые условия для такого сотрудничества.</p>
 				<p>Нам очень интересно сотрудничество с компаниями имеющие склады в регионах Российской Федерации. Мы готовы работать с постащиками имеющими даже небольшое наличие на собственных складах. Возможности нашей системы позволяют принимать к выгрузке прайс-листы любого формата. Если вас заинтересовало сотруднечество с нашей компанией пишите нам на email postav@carex-parts.com или заполните ниже форму</p>
@@ -48,7 +48,7 @@
 	</NuxtLayout>
 </template>
 <style lang="scss">
-	.com-block--suppliers{
+	.columns-2--suppliers{
 		margin-block-end: 90px;	
 	}
 	.suppliers{

@@ -8,9 +8,9 @@
 				<span class="breadcrums__idle">Доставка</span>
 			</li>
 		</ul>
-		<section class="com-block">
-			<ThePageTitle class="com-block__title" title="Доставка" />
-			<div class="com-block__content delivery">
+		<section class="columns-2">
+			<ThePageTitle class="columns-2__title" title="Доставка" />
+			<div class="columns-2__content delivery">
 				<div class="com-card">
 					<div class="com-card__img">
 						<img src="/assets/images/delivery/company.png" alt="">

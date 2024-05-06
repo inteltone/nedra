@@ -1,10 +1,23 @@
 <script setup>
-let name = ref('')
-let last_name = ref('')
-let password = ref('')
-let confirm_password = ref('')
-let tel = ref('')
-
+let name = ref('') // поле имя
+let last_name = ref('') // поле фамилия
+let password = ref('') // поле пароль
+let confirm_password = ref('') // поле подтверждение пароля
+let type_password = ref('password') // для смены типа поля пароль
+let type_confirm_password = ref('password') // для смены типа поля подтв пароля
+let tel = ref('') // поле телефон
+let email = ref('') // поле email
+let isValidatedEmail = ref(true) // для скрытия подсказки для email и общей валидации формы
+let checked = ref(false) // чекбокс
+let disabled = ref(true) // кнопка ЗАРЕГИСТРИРОВАТЬСЯ
+// --- валидация паролей -----
+const showPassword = ()=>{
+	type_password.value = type_password.value === 'password' ? 'text' : 'password'	
+}
+const showConfirmPassword = ()=>{
+	type_confirm_password.value = type_confirm_password.value === 'password' ? 'text' : 'password'
+}
+// --- валидация телефона -----
 const focusTel = () => {
 	if (tel.value.length === 0) {		
 		tel.value = '+7'		
@@ -46,17 +59,46 @@ const inputTel = () => {
 		tel.value = '+7' + str.replace(/[^\d.-]/g, '')
 	}
 }
-let email = ref('')
-let type_password = ref('password')
-let type_confirm_password = ref('password')
-const showPassword = ()=>{
-	type_password.value = type_password.value === 'password' ? 'text' : 'password'	
+// --- валидация email -----
+function inputEmail() { // возвращает true / false	
+	// если есть @
+	if (email.value.indexOf('@') === -1) {
+		isValidatedEmail.value = true
+		validation()
+		return
+	}
+	// если до @ меньше 1 символа
+	if (email.value.indexOf('@') === 0) {
+		isValidatedEmail.value = true
+		validation()
+		return
+	}
+	// если есть точка после @
+	let indexAt = email.value.indexOf('@')
+	let strAt = email.value.slice(indexAt + 1)
+	if (strAt.indexOf('.') === -1) {
+		isValidatedEmail.value = true
+		validation()
+		return
+	}	
+	if (email.value.indexOf('.') - email.value.indexOf('@') === 1) {
+		isValidatedEmail.value = true
+		validation()
+		return
+	}
+	// если после точки меньше двух знаков
+	let indexDot = email.value.indexOf('.')
+	let strDot = email.value.slice(indexDot + 1)
+	console.log(strDot,strDot.length)
+	if (strDot.length < 2) {
+		isValidatedEmail.value = true
+		validation()
+		return
+	}	
+	isValidatedEmail.value = false
+	validation()
 }
-const showConfirmPassword = ()=>{
-	type_confirm_password.value = type_confirm_password.value === 'password' ? 'text' : 'password'
-}
-let checked = ref(false)
-let disabled = ref(true)
+// --- валидация всех полей формы -----
 function validation(){ 
 	if (name.value.length === 0) {
 		disabled.value = true		
@@ -78,6 +120,10 @@ function validation(){
 		disabled.value = true
 		return
 	}
+	if (isValidatedEmail.value === true) {
+		disabled.value = true
+		return
+	}
 	if (checked.value !== true) {
 		disabled.value = true
 		return
@@ -87,9 +133,9 @@ function validation(){
 </script>
 <template>
 	<NuxtLayout >		
-		<section class="com-block registration-page">
-			<ThePageTitle class="com-block__title" title="Регистрация" />
-			<div class="com-block__content registration">
+		<section class="columns-2 registration-page">
+			<ThePageTitle class="columns-2__title" title="Регистрация" />
+			<div class="columns-2__content registration">
 				<form class="registration__form">
 					<div class="form-block">
 						<div class="input-group">
@@ -128,7 +174,7 @@ function validation(){
 						</div>
 						<div class="input-group">
 							<label for="tel">Телефон</label>
-							<input class="inputTelReg" type="text" id="tel" placeholder="+7 800 494 17 18"
+							<input class="inputTelReg" type="text" id="tel" placeholder="+78004941718"
 								v-model="tel" 
 								@focus="focusTel"
 								@input="inputTel"
@@ -139,8 +185,11 @@ function validation(){
 						</div>
 						<div class="input-group">
 							<label for="email">E-mail</label>
-							<input type="email" id="email" placeholder="@yandex.ru">
-							<div class="input-error">
+							<input type="email" id="email" placeholder="@yandex.ru" 
+								v-model="email"
+								@input="inputEmail"
+							>
+							<div class="input-error" v-show="isValidatedEmail">
 								Необходим для отслеживания и получения заказов
 							</div>
 						</div>
@@ -163,10 +212,10 @@ function validation(){
 
 <style lang="scss">
 .registration-page{
-	.com-block__title{
+	.columns-2__title{
 		grid-column: 1/span 3;
 	}
-	.com-block__content {
+	.columns-2__content {
 		grid-column: 4/-1;
 	}
 }
@@ -289,6 +338,6 @@ function validation(){
 		&-btn{
 			margin-inline-start: calc(var(--label-mie) + var(--label-w));			
 		}
-	}
+	}	
 }	
 </style>

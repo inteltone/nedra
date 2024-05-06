@@ -8,9 +8,9 @@
 				<span class="breadcrums__idle">Оплата</span>
 			</li>
 		</ul>
-		<section class="com-block">
-			<ThePageTitle class="com-block__title" title="Оплата" />
-			<div class="com-block__content oplata">
+		<section class="columns-2">
+			<ThePageTitle class="columns-2__title" title="Оплата" />
+			<div class="columns-2__content oplata">
 				<div class="com-card">
 					<div class="com-card__img">
 						<img src="/assets/images/payment/money.png" alt="">
@@ -38,18 +38,7 @@
 	</NuxtLayout>
 </template>
 
-<style lang="scss">
-	.com-block{
-		display: grid;
-		grid-template-columns: repeat(12,1fr);
-		gap: 0 20px;
-		&__title{
-			grid-column: 1 / span 4;
-		}
-		&__content{
-			grid-column: 5 / -1;
-		}
-	}	
+<style lang="scss">		
 	.oplata{		
 		display: grid;
 		grid-template-columns: 1fr 1fr;

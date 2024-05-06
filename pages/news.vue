@@ -8,9 +8,9 @@
 				<span class="breadcrums__idle">Новости</span>
 			</li>
 		</ul>
-		<section class="com-block">
-			<ThePageTitle class="com-block__title" title="Новости" />
-			<div class="com-block__content news">
+		<section class="columns-2">
+			<ThePageTitle class="columns-2__title" title="Новости" />
+			<div class="columns-2__content news">
 				<ul class="news__list">
 					<li class="news__list-item">
 						<NuxtLink class="news-item" to="/">

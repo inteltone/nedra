@@ -11,9 +11,9 @@
 				<span class="breadcrums__idle">Ростов-на-Дону</span>
 			</li>
 		</ul>
-		<section class="com-block com-block--shop">
-			<ThePageTitle class="com-block__title" title="Интернет-магазин в Ростове-на-Дону" />
-			<div class="com-block__content shop">
+		<section class="columns-2 columns-2--shop">
+			<ThePageTitle class="columns-2__title" title="Интернет-магазин в Ростове-на-Дону" />
+			<div class="columns-2__content shop">
 				<div class="shop__map">
 					<img src="/assets/images/misc/map.png" alt="">
 				</div>
@@ -44,7 +44,7 @@
 	</NuxtLayout>
 </template>
 <style lang="scss">
-.com-block--shop{
+.columns-2--shop{
 	margin-block-end: 135px;
 }
 .shop{	

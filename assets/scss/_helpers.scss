@@ -87,3 +87,16 @@ textarea{
 		cursor: not-allowed;
 	}
 }
+
+// ------- columns-2 -----------------
+.columns-2{
+	display: grid;
+	grid-template-columns: repeat(12,1fr);
+	gap: 0 20px;
+	&__title{
+		grid-column: 1 / span 4;
+	}
+	&__content{
+		grid-column: 5 / -1;
+	}
+}
