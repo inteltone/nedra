@@ -11,6 +11,7 @@
 				<NuxtLink to="/news">Новости</NuxtLink>
 				<NuxtLink to="/news-single">Страница новости</NuxtLink>
 				<NuxtLink to="/registration">Регистрация</NuxtLink>
+				<NuxtLink to="/search-artikul">Поиск по артикулу</NuxtLink>
 			</div>
 		</div>
 	</NuxtLayout>
