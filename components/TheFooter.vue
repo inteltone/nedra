@@ -7,11 +7,11 @@
 					<input class="input" type="text" placeholder="Введите ваш e-mail или номер телефон">
 				</form>
 				<button class="footer__top-btn">
-					<svg><use href='/assets/images/svg/sprite.svg#tel'></use></svg>
+					<i class="icon-call"></i>
 					Перезвоните мне
 				</button>
 				<button class="footer__top-btn">
-					<svg><use href='/assets/images/svg/sprite.svg#message'></use></svg>
+					<i class="icon-chat"></i>
 					Связь с менеджером
 				</button>
 			</div>

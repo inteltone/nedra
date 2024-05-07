@@ -180,7 +180,7 @@ function validation() {
 							<div class="password">
 									<input :type="type_confirm_password" id="confirm-password" placeholder="Пароль" v-model="confirm_password" 
 									@input="validation"
-									:class="{validated: password === confirm_password, invalidated: password !== confirm_password}"
+									:class="{validated: password === confirm_password && confirm_password.length > 5, invalidated: (confirm_password.length > 0 && confirm_password.length < 6) || password !== confirm_password && confirm_password.length > 5}"
 								>
 								<span class="icon-eye" @click="showConfirmPassword"></span>
 							</div>

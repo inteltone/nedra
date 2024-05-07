@@ -37,7 +37,7 @@ function openDropdown() { isOpenedDropdown.value = !isOpenedDropdown.value }
 				</div>
 			</div>
 			<div class="header__top-address">
-				<svg><use href='/assets/images/svg/sprite.svg#navigator'></use></svg>
+				<i class="icon-near"></i>
 				<span><strong>Магазин:</strong> проспект Михаила Нагибина, д. 155</span>
 			</div>
 			<div class="header__top-menu">
@@ -58,41 +58,41 @@ function openDropdown() { isOpenedDropdown.value = !isOpenedDropdown.value }
 				<NuxtLink class="link" to="/">Бренды</NuxtLink>
 			</div>
 			<div class="header__mid-tel">
-				<svg><use href='/assets/images/svg/sprite.svg#tel'></use></svg>
+				<i class="icon-call"></i>
 				<a class="link" href="tel:+79407553030">+7 940 755 30 30</a>
 			</div>
 		</div>
 		<div class="header__btm">
 			<button class="header__btm-burger">
-				<svg><use href='/assets/images/svg/sprite.svg#burger'></use></svg>
-				Каталог
+				<i class="icon-menu-1"></i>
 			</button>
+			<NuxtLink to="/" class="header__btm-catalog">Каталог</NuxtLink>
 			<form class="header__btm-search">
-				<svg class="search-icon"><use href='/assets/images/svg/sprite.svg#search'></use></svg>
+				<i class="icon-search"></i>
 				<input class="input" type="text" placeholder="Поиск по номеру детали, например ST2121166L">
 				<button class="button" title="Искать">
-					<svg><use href='/assets/images/svg/sprite.svg#search'></use></svg>
+					<i class="icon-search"></i>
 				</button>
 			</form>
 			<div class="header__btm-login">
 				<div v-if="!isLogged" class="out">
 					<NuxtLink to="/" class="link message">
-						<svg><use href='/assets/images/svg/sprite.svg#message'></use></svg>
+						<i class="icon-chat"></i>
 						<span>Связь с менеджером</span>
 					</NuxtLink>
 					<NuxtLink to="/" class="link user">
-						<svg><use href='/assets/images/svg/sprite.svg#login'></use></svg>
+						<i class="icon-login"></i>
 						<span>Даниил С.</span>
 					</NuxtLink>
 				</div>
 				<button v-else class="link in" @click="showPopup">
-					<svg><use href='/assets/images/svg/sprite.svg#login'></use></svg>
+					<i class="icon-login"></i>
 					<span>Войти на сайт</span>
 				</button>				
 			</div>
 			<NuxtLink to="/" class="header__btm-basket">
 				<div class="counter-wrap">
-					<svg><use href='/assets/images/svg/sprite.svg#basket'></use></svg>
+					<i class="icon-mall"></i>
 					<span class="counter">12</span>
 				</div>
 				Корзина
@@ -192,10 +192,9 @@ function openDropdown() { isOpenedDropdown.value = !isOpenedDropdown.value }
 		&-address{
 			display: flex;
 			align-items: center;
-			gap: 0 15px;
-			svg {
-				inline-size: 24px;
-				block-size: 24px;
+			gap: 0 10px;
+			[class^="icon-"]{
+				font-size: 32px;
 			}
 		}
 		&-menu{
@@ -234,11 +233,10 @@ function openDropdown() { isOpenedDropdown.value = !isOpenedDropdown.value }
 		&-tel{
 			display: flex;
 			align-items: center;
-			gap: 0 14px;
-			svg {
-				inline-size: 24px;
-				block-size: 24px;
-			}
+			gap: 0 10px;
+			[class^="icon-"]{
+				font-size: 32px;
+			}			
 			.link{
 				color: var(--clr-text);
 				transition: color var(--tr);
@@ -255,16 +253,14 @@ function openDropdown() { isOpenedDropdown.value = !isOpenedDropdown.value }
 		margin-block-end: calc(-1 * var(--header__btm-h) / 2);
 		padding: 16px 26px;
 		background-color: var(--clr-orange-100);
-		border-radius: 8px;
-		
+		border-radius: 8px;		
 		&-burger{
-			display: flex;
-			gap: 0 12px;
+			display: grid;
+			place-items: center;	
+			margin-inline-end: 12px;
+		}
+		&-catalog{
 			margin-inline-end: 148px;
-			svg {
-				inline-size: 24px;
-				block-size: 24px;
-			}
 		}
 		&-search{
 			display: flex;
@@ -275,11 +271,11 @@ function openDropdown() { isOpenedDropdown.value = !isOpenedDropdown.value }
 			margin-inline-end: 84px;
 			padding-inline: 24px 9px;
 			background-color: var(--clr-white);
-			border-radius: 8px;
-			.search-icon{
-				margin-inline-end: 12px;									
-				fill: #a9a9a9;				
-			}
+			border-radius: 8px;			
+			&>.icon-search{
+				margin-inline-end: 12px;
+				color: #a9a9a9;
+			}			
 			.input{
 				flex-grow: 1;
 				display: block;
@@ -301,22 +297,15 @@ function openDropdown() { isOpenedDropdown.value = !isOpenedDropdown.value }
 				block-size: 32px;
 				margin-inline-start: 12px;			
 				background-color: var(--clr-gray-100);
-				border-radius: 4px;
-				svg {
-					fill: var(--clr-dark-100);
-				}
-			}
-			svg {
-				inline-size: 24px;
-				block-size: 24px;				
-			}
+				border-radius: 4px;				
+			}			
 		}
 		&-login{
 			display: flex;
 			align-items: center;
 			gap: 0 12px;
 			margin-inline-start: auto;
-			color: var(--clr-text);
+			color: var(--clr-text);			
 			.out{
 				display: flex;
 				align-items: center;
@@ -327,12 +316,7 @@ function openDropdown() { isOpenedDropdown.value = !isOpenedDropdown.value }
 				align-items: center;
 				gap: 0 12px;
 				inline-size: max-content;
-				color: var(--clr-text);
-				svg {
-					flex-shrink: 0;
-					inline-size: 24px;
-					block-size: 24px;
-				}
+				color: var(--clr-text);				
 			}
 		}
 		&-basket{
@@ -349,12 +333,8 @@ function openDropdown() { isOpenedDropdown.value = !isOpenedDropdown.value }
 				block-size: 100%;
 				padding-inline: 9px;
 				background-color: var(--clr-white);
-				border-radius: 6px;
-				svg {
-					inline-size: 24px;
-					block-size: 24px;
-				}
-			}
+				border-radius: 6px;				
+			}			
 		}
 	}
 	&.inactive{

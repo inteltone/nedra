@@ -21,20 +21,20 @@
 		</section>
 		<ul class="shop__list">
 			<li class="shop__list-item">
-				<svg><use href='/assets/images/svg/sprite.svg#navigator'></use></svg>
+				<i class="icon-near"></i>
 				<div class="text">
 					<p>Ростов-на-Дону, ул. Михаила Нагибина, д. 155</p>
 				</div>
 			</li>
 			<li class="shop__list-item">
-				<svg><use href='/assets/images/svg/sprite.svg#clock'></use></svg>
+				<i class="icon-schedule"></i>
 				<div class="text">
 					<p><strong>Пн-Пт</strong> с 09:00 до 18:00</p>
 					<p><strong>Сб, Вс</strong> Выходной</p>
 				</div>
 			</li>
 			<li class="shop__list-item">
-				<svg><use href='/assets/images/svg/sprite.svg#tel'></use></svg>
+				<i class="icon-call"></i>
 				<div class="text">
 					<p><a href="tel:+78004971880">+7 800 497 18 80</a></p>
 					<p><a href="mail:ysa@carex-parts.com">ysa@carex-parts.com</a></p>
@@ -62,6 +62,13 @@
 		display: grid;
 		grid-template-columns: repeat(3,1fr);
 		gap: 20px;
+		[class^="icon-"]{
+			font-size: 60px;
+			line-height: 60px;
+		}
+		.icon-near{
+			font-size: 70px;
+		}
 		&-item{
 			position: relative;
 			display: flex;

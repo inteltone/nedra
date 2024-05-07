@@ -14,7 +14,7 @@
 		<ThePageTitle title="Заголовок новости" />
 		<section class="news-single">			
 			<NuxtLink to="/" class="news-single__share">
-				<svg><use href='/assets/images/svg/sprite.svg#share'></use></svg>
+				<i class="icon-share"></i>
 				Поделиться новостью
 			</NuxtLink>
 			<div class="news-single__img">
@@ -90,13 +90,12 @@
 		gap: 10px;
 		margin-block-end: 16px;
 		color: var(--clr-text);
-		transition: color var(--tr);
-		svg {
-			inline-size: 32px;
-			block-size: 32px;
-		}
+		transition: color var(--tr);		
 		&:hover, &:focus-visible{
 			color: var(--clr-orange-100);
+		}
+		[class^="icon-"]{
+			font-size: 32px;
 		}
 	}
 	&__img{
