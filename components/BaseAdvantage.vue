@@ -18,8 +18,12 @@ defineProps({
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: 24px 0;
+	gap: 16px 0;
 	padding: 40px 68px;
+	[class^="icon-"]{
+		font-size: 60px;
+		line-height: 60px;
+	}
 	&::before,&::after{
 		content: '';
 		position: absolute;				

@@ -50,11 +50,7 @@
 		}
 	}
 }
-.advantages{		
-	[class^="icon-"]{
-		font-size: 60px;
-		line-height: 60px;
-	}
+.advantages{	
 	.icon-near{
 		font-size: 70px;
 	}
