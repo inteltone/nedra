@@ -19,27 +19,18 @@
 				</div>
 			</div>
 		</section>
-		<ul class="shop__list">
-			<li class="shop__list-item">
-				<i class="icon-near"></i>
-				<div class="text">
-					<p>Ростов-на-Дону, ул. Михаила Нагибина, д. 155</p>
-				</div>
-			</li>
-			<li class="shop__list-item">
-				<i class="icon-schedule"></i>
-				<div class="text">
-					<p><strong>Пн-Пт</strong> с 09:00 до 18:00</p>
-					<p><strong>Сб, Вс</strong> Выходной</p>
-				</div>
-			</li>
-			<li class="shop__list-item">
-				<i class="icon-call"></i>
-				<div class="text">
-					<p><a href="tel:+78004971880">+7 800 497 18 80</a></p>
-					<p><a href="mail:ysa@carex-parts.com">ysa@carex-parts.com</a></p>
-				</div>
-			</li>
+		<ul class="advantages auto-grid">
+			<BaseAdvantage icon="near">				
+				<p>Ростов-на-Дону, ул. Михаила Нагибина, д. 155</p>
+			</BaseAdvantage>
+			<BaseAdvantage icon="schedule">
+				<p><strong>Пн-Пт</strong> с 09:00 до 18:00</p>
+				<p><strong>Сб, Вс</strong> Выходной</p>
+			</BaseAdvantage>
+			<BaseAdvantage icon="call">
+				<p><a href="tel:+78004971880">+7 800 497 18 80</a></p>
+				<p><a href="mail:ysa@carex-parts.com">ysa@carex-parts.com</a></p>
+			</BaseAdvantage>			
 		</ul>
 	</NuxtLayout>
 </template>
@@ -58,86 +49,17 @@
 			block-size: 100%;
 		}
 	}
-	&__list{		
-		display: grid;
-		grid-template-columns: repeat(3,1fr);
-		gap: 20px;
-		[class^="icon-"]{
-			font-size: 60px;
-			line-height: 60px;
-		}
-		.icon-near{
-			font-size: 70px;
-		}
-		&-item{
-			position: relative;
-			display: flex;
-			flex-direction: column;
-			gap: 24px 0;
-			padding: 40px 68px;
-			&::before,&::after{
-				content: '';
-				position: absolute;				
-				inset-block-start: 0;
-				inline-size: 40px;
-				block-size: 40px;	
-				border-block-start: 1px solid var(--clr-black);			
-			}
-			&::before{
-				inset-inline-start: 0;
-				border-inline-start: 1px solid var(--clr-black);				
-			}
-			&::after{
-				inset-inline-end: 0;
-				border-inline-end: 1px solid var(--clr-black);				
-			}
-			&:first-child{
-				&::before{
-					border-radius: 8px 0 0 0;
-				}
-				.text::before{
-					border-radius: 0 0 0 8px;					
-				}
-			}
-			&:last-child{
-				&::after{
-					border-radius: 0 8px 0 0;
-				}
-				.text::after{
-					border-radius: 0 0 8px 0;					
-				}
-			}
-			svg {
-				inline-size: 64px;
-				block-size: 64px;
-			}
-			.text{
-				font-size: 24px;
-				a{
-					color: var(--clr-text);
-					transition: color var(--tr);
-					&:hover{
-						color: var(--clr-orange-100);
-					}
-				}
-				&::before,&::after{
-				content: '';
-				position: absolute;				
-				inset-block-end: 0;
-				inline-size: 40px;
-				block-size: 40px;	
-				border-block-end: 1px solid var(--clr-black);			
-			}
-				&::before{
-					inset-inline-start: 0;
-					border-inline-start: 1px solid var(--clr-black);				
-				}
-				&::after{
-					inset-inline-end: 0;
-					border-inline-end: 1px solid var(--clr-black);				
-				}				
-			}
-		}
+}
+.advantages{		
+	[class^="icon-"]{
+		font-size: 60px;
+		line-height: 60px;
+	}
+	.icon-near{
+		font-size: 70px;
+	}
+	&.auto-grid{
+		--min-w: 380px;
 	}
 }
 </style>

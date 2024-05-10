@@ -69,54 +69,10 @@
 	&__list{		
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 42px 20px;
-		&-item{}
+		gap: 42px 20px;		
 	}
 	&__btn{
 		grid-column: 5 / -1;
 	}
-}
-.news-item{
-	display: flex;
-	flex-direction: column;
-	block-size: 100%;
-	color: var(--clr-text);
-	&__img{
-		overflow: hidden;
-		aspect-ratio: 1.5476;
-		margin-block-end: 20px;
-		border-radius: 8px;
-		&:hover, &:focus-visible{
-			img{
-				transform: scale(1.05);
-			}
-		}
-		img{
-			inline-size: 100%;
-			block-size: 100%;
-			object-fit: cover;
-			transition: transform var(--tr);
-		}
-	}
-	&__time{
-		display: block;
-		margin-block-end: 12px;
-	}
-	&__title{
-		margin-block-end: 4px;
-	}
-	&__text{
-		margin-block-end: 24px;
-	}
-	&__link{
-		margin-block-start: auto;
-		text-transform: uppercase;
-		text-decoration-line: underline;
-  		text-underline-offset: 3px;
-		transition: color var(--tr);
-		&:hover, &:focus-visible{		
-			color: var(--clr-orange-100);
-		}
-	}	
 }
 </style>
