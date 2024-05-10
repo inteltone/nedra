@@ -1,258 +1,118 @@
+<script setup>
+const CATALOGS = [
+	{name: 'Запчасти', img: 'spares'},
+	{name: 'Запчасти для то', img: 'spares-to'},
+	{name: 'аккумуляторы', img: 'batteries'},
+	{name: 'масла', img: 'oils'},
+	{name: 'ШИНЫ и диски', img: 'tires-wheels'},
+	{name: 'автосвет', img: 'autolight'},
+	{name: 'аксессуары', img: 'accessories'},
+]
+const catalogs = ref(CATALOGS)
+</script>
 <template>
 	<NuxtLayout>		
-		<!-- <ThePageTitle title="Главная" /> -->
-		<div class="hero full container">
-			<div class="hero__inner">
-				<img class="hero__inner-logo" src="/assets/images/svg/misc/logo-hero.svg" alt="">
-				<img class="hero__inner-logo-mob" src="/assets/images/svg/misc/logo.svg" alt="">
-				<img class="hero__inner-auto-mob" src="/assets/images/misc/hero-auto-mob.png" alt="">
-				<p class="hero__inner-title">Удобный сервис для быстрого подбора запчастей</p>
-				<div class="hero__inner-btns-wrap">
-					<p class="hero__inner-btns-title">Поиск</p>
-					<div class="hero__inner-btns">
-						<a href="#" class="hero__inner-btn">
-							<span><span>поиск</span> по VIN</span>
-						</a>
-						<a href="#" class="hero__inner-btn">
-							<span><span>поиск</span> по бренду</span>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="map">
-			<p class="map__title">Карта сайта</p>
-			<div class="map__list">
-				<NuxtLink to="/oplata">Оплата</NuxtLink>
-				<NuxtLink to="/delivery">Доставка</NuxtLink>
-				<NuxtLink to="/suppliers">Поставщикам</NuxtLink>
-				<NuxtLink to="/shop">Интернет-магазин</NuxtLink>
-				<NuxtLink to="/news">Новости</NuxtLink>
-				<NuxtLink to="/news-single">Страница новости</NuxtLink>
-				<NuxtLink to="/registration">Регистрация</NuxtLink>
-				<NuxtLink to="/search-artikul">Поиск по артикулу</NuxtLink>
-				<NuxtLink to="/search-vin-brands">Оригинальный каталог</NuxtLink>
-				<NuxtLink to="/cabinet">Личный кабинет</NuxtLink>
-			</div>			
-		</div>		
+		<TheHero />
+		<div class="catalogs">
+			<NuxtLink to="/" class="catalogs__item catalog" v-for="item,index in catalogs" :key="item.name">
+				<div class="catalog__num">0{{ index + 1 }}</div>
+				<div class="catalog__title h2">{{ item.name }}</div>
+				<img class="catalog__img" :src="`/images/catalogs/${item.img}.png`" :alt="item.name">
+			</NuxtLink>			
+		</div>				
 	</NuxtLayout>
 </template>
 <style lang="scss">
-.hero{
-	margin-block-end: 32px;
-	padding-block-start: 8vw;
-	padding-block-end: 60px;
-	color: var(--clr-white);
-	background-color: var(--clr-black);
-	background-image: url("../assets/images/misc/hero-bg.png");
-	background-repeat: no-repeat;
-	background-position: left bottom;
-	background-size: auto 100%;
-	&__inner{		
-		&-logo{
-			inline-size: 28vw;
-			margin-block-end: 1.5vw;
+.catalogs{
+	--gap: 5px;
+	display: grid;
+	grid-template-columns: repeat(6,1fr);
+	grid-template-rows: 1fr 1fr;
+	gap: var(--gap);
+	block-size: 464px;
+	margin-block-end: 48px;
+	.catalog{
+		display: grid;
+		grid-template-rows: min-content;
+		position: relative;
+		overflow: hidden;
+		inline-size: calc(50% - var(--gap) / 2);
+		padding: 36px 29px 25px;
+		color: var(--clr-text);
+		background-color: var(--clr-gray-100);
+		border-radius: 8px 0 0 8px;
+		transition: background-color var(--tr), inline-size var(--tr), border-radius var(--tr);		
+		&__img{
+			align-self: end;
+			margin-inline-start: 20%;
+			transform-origin: left bottom;			
+			transition: transform var(--tr);
 		}
-		&-logo-mob{
-			display: none;
+		&::after{
+			content: '';
+			position: absolute;
+			inset-inline-start: 20px;
+			inset-block-end: 45px;			
+			inline-size: 35px;
+			block-size: 22px;
+			background-image: url("data:image/svg+xml,%3Csvg width='70' height='23' viewBox='0 0 70 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M59.5147 0.43934L69.0607 9.98528C69.6464 10.5711 69.6464 11.5208 69.0607 12.1066L59.5147 21.6525C58.9289 22.2383 57.9792 22.2383 57.3934 21.6525C56.8076 21.0668 56.8076 20.117 57.3934 19.5312L64.3787 12.5459H0V9.54594H64.3787L57.3934 2.56066C56.8076 1.97487 56.8076 1.02513 57.3934 0.43934C57.9792 -0.146447 58.9289 -0.146447 59.5147 0.43934Z' fill='black'/%3E%3C/svg%3E%0A");
+			background-position: right center;
+			transition: inline-size var(--tr);
 		}
-		&-auto-mob{
-			display: none;
+		&:nth-child(1){
+			grid-column: 1 / span 2;
+			grid-row: 1 / span 2;			
 		}
-		&-title{
-			font-family: var(--ff-sec);
-			font-size: 1.65vw;
-			font-size: clamp(31px, 1.6875rem + 0.3125vi, 32px);
-			margin-block-end: 2vw;
+		&:nth-child(2){
+			grid-column: 2 / span 2;
+			grid-row: 1 / span 2;
+		}
+		&:nth-child(3){
+			grid-column: 3 / span 2;
+			grid-row: 1 / span 2;
+		}
+		&:nth-child(4){
+			grid-column: 4 / span 2;
+			grid-row: 1 / span 2;
+		}
+		&:nth-child(5){
+			grid-column: 5 / span 2;
+			grid-row: 1 / span 2;
+		}
+		&:nth-child(6){
+			grid-column: 6 / span 1;
+			grid-row: 1 / span 1;
+			inline-size: unset;
+		}
+		&:nth-child(7){
+			grid-column: 6 / span 1;
+			grid-row: 2 / span 1;
+			inline-size: unset;
+		}
+		&:nth-child(6), &:nth-child(7){
+			img{
+				margin-inline-start: 60%;
+				transform: translateY(-20%);
+			}
+		}
+	}
+	.catalog:hover{
+		position: relative;
+		z-index: 1;
+		inline-size: 80%;
+		background-color: var(--clr-orange-100);
+		border-radius: 8px;
+		.catalog__img{
+			transform: scale(1.1);
 		}		
-		&-btns-title{
-			display: none;
-		}
-		&-btns{
-			// inline-size: 28vw;
-			display: flex;
-			gap: 20px;
-		}
-		&-btn{
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			gap: 0 18px;
-			padding-inline: 44px;
-			padding-block: 16px;
-			color: var(--clr-white);
-			background-color: hsl(0 0% 100% / .2);
-			text-transform: uppercase;
-			border-radius: 8px;
-			transition: color var(--tr), background-color var(--tr);
-			&::after{
-				content: '';
-				inline-size: 31px;
-				block-size: 8px;
-				background-image: url("data:image/svg+xml,%3Csvg width='61' height='8' viewBox='0 0 61 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M57.1716 0.46444L60.3536 3.64642C60.5488 3.84168 60.5488 4.15826 60.3536 4.35353L57.1716 7.53551C56.9763 7.73077 56.6597 7.73077 56.4645 7.53551C56.2692 7.34025 56.2692 7.02366 56.4645 6.8284L58.7929 4.49997H0V3.49997H58.7929L56.4645 1.17155C56.2692 0.976284 56.2692 0.659702 56.4645 0.46444C56.6597 0.269178 56.9763 0.269178 57.1716 0.46444Z' fill='white'/%3E%3C/svg%3E%0A");
-				background-position: center right;
-				transition: inline-size var(--tr);
-			}
-			&:hover{
-				color: var(--clr-text);
-				background-color: var(--clr-orange-100);
-				&::after{					
-					inline-size: 61px;
-					background-image: url("data:image/svg+xml,%3Csvg width='61' height='8' viewBox='0 0 61 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M57.1716 0.46444L60.3536 3.64642C60.5488 3.84168 60.5488 4.15826 60.3536 4.35353L57.1716 7.53551C56.9763 7.73077 56.6597 7.73077 56.4645 7.53551C56.2692 7.34025 56.2692 7.02366 56.4645 6.8284L58.7929 4.49997H0V3.49997H58.7929L56.4645 1.17155C56.2692 0.976284 56.2692 0.659702 56.4645 0.46444C56.6597 0.269178 56.9763 0.269178 57.1716 0.46444Z' fill='black'/%3E%3C/svg%3E%0A");
-				}
-			}
-		}
 	}
-}
-@media (max-width: 1600px) {
-	.hero{
-		padding-block-start: clamp(120px, 6.6111rem + 1.3889vi,128px);
-		background-position: left clamp(-100px, -17.3611rem + 17.3611vi, 0px) bottom;
+	.catalog:hover::after{
+		inline-size: 70px;
 	}
-}
-@media (max-width: 1280px) {
-	.hero{
-		&__inner{
-			&-title{
-				font-size: clamp(24px, -0.25rem + 2.7344vi, 31px);
-			}
-			&-btn{
-				padding-inline: clamp(24px, -3.5rem + 7.8125vi, 44px);
-
-			}
-		}
-	}
-}
-@media (max-width: 1024px) {
-	.hero{
-		padding-block-start: clamp(90px, 3.8942rem + 3.6058vi, 120px);
-		padding-block-end: clamp(40px, -1.25rem + 7.8125vi, 60px);
-		background-position: left -250px bottom;
-		&__inner{
-			&-title{
-				inline-size: 360px;
-				font-size: clamp(27px, 0.75rem + 1.9531vi, 32px);
-				line-height: 1.25;
-			}
-			&-btns{
-				flex-direction: column;
-				gap: 12px 0;
-				inline-size: clamp(250px, 6.25rem + 19.5313vi, 300px);
-			}
-			&-btn{				
-				padding-inline: 24px;
-			}
-		}
-	}
-}
-@media (max-width: 640px) {
-	.hero{	
-		padding-block-start: 60px;	
-		padding-block-end: 0;
-		background-color: var(--clr-white);
-		background-image: unset;	
-		&__inner{
-			display: grid;
-			justify-items: center;
-			&-logo{
-				display: none;
-			}
-			&-logo-mob{
-				inline-size: 188px;
-				display: block;
-			}
-			&-auto-mob{
-				display: block;
-				inline-size: 80%;
-				margin-block-end: 24px;
-			}
-			&-title{
-				inline-size: unset;
-				color: var(--clr-text);
-				line-height: 1.1;
-				text-align: center;
-			}
-			&-btns-wrap{
-				inline-size: 100%;
-			}
-			&-btns-title{
-				position: relative;
-				inset-inline-start: 16px;
-				inset-block-start: 11px;
-				display: inline-block;
-				padding-inline: 24px;
-				color: var(--clr-gray);
-				background-color: var(--clr-white);
-				font-size: 14px;
-				line-height: 1;
-			}
-			&-btns{
-				--gap: 8px;
-				flex-direction: row;
-				gap: 0 var(--gap);
-				inline-size: 100%;
-				padding: 17px 16px 14px;
-				border: 1px solid var(--clr-gray);
-				border-radius: 8px;
-			}
-			&-btn{
-				// flex-grow: 1;
-				flex-basis: calc(50% - var(--gap) / 2);
-				background-color: var(--clr-black);
-			}
-		}
-	}
-}
-@media (max-width: 480px) {
-	.hero{
-		&__inner{			
-			&-btn{
-				justify-content: space-between;
-				padding-inline: 16px;
-				font-size: 10px;
-				span span{
-					display: none;
-				}
-				&::after{
-					inline-size: 16px;
-				}
-			}
-		}
-	}
-}
-.map{	
-	inline-size: max-content;
-	margin-block-end: 24px;
-	padding: 18px 24px;
-	border: 1px solid var(--clr-gray-100);
-	border-radius: 8px;
-	&__title{
-		margin-block-end: 12px;
-		padding-block-end: 6px;
-		text-transform: uppercase;
-		border-block-end: 1px solid var(--clr-gray-100);
-	}
-	&__list{
-		display: flex;
-		flex-direction: column;
-		gap: 8px 0;
-		counter-reset: pages;
-		a{
-			display: flex;
-			gap: 0 10px;
-			color: var(--clr-text);
-			transition: color var(--tr);
-			&:hover{
-				color: var(--clr-orange-100);
-			}
-		}
-		a::before {         
-			counter-increment: pages;
-			content: counter(pages)'. ';
-		}
-		a::after {			
-			content: '\276F';
-			margin-inline-start: auto;
+	.catalog:nth-child(6):hover,.catalog:nth-child(7):hover{
+		inline-size: unset;
+		img{
+			transform: translateY(-20%) scale(1.1);
 		}
 	}
 }

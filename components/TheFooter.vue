@@ -30,6 +30,7 @@
 							<NuxtLink class="link" to="/">Соглашение об авторских правах</NuxtLink>
 							<NuxtLink class="link" to="/">VIN запрос</NuxtLink>
 							<NuxtLink class="link" to="/">Оферта</NuxtLink>
+							<NuxtLink class="link" to="/map">Карта</NuxtLink>
 						</div>
 					</div>
 					<div class="menu-wrap menu-mid">
