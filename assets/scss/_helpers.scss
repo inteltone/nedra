@@ -127,3 +127,37 @@ textarea{
 		grid-column: 5 / -1;
 	}
 }
+
+// ------- breadcrums -----------------
+.breadcrums{
+	--mie: 4px;
+	display: flex;
+	gap: 0 var(--mie);
+	margin-block-end: 23px;
+	color: #a9a9a9;
+	&__item{
+		display: flex;
+		gap: 0 var(--mie);
+		&:not(:last-child)::after{
+			content: '/';
+		}
+	}
+	&__link{
+		color: inherit;
+		transition: color var(--tr);
+		&:hover{
+			color: var(--clr-orange-100);
+		}
+	}
+}
+
+.auto-grid {
+	--min-w: 250px;
+	--max-w: 1fr;
+	--c-g: 20px;
+	--r-g: 20px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(var(--min-w), 100%), var(--max-w)));
+	column-gap: var(--c-g);
+	row-gap: var(--r-g);
+ }

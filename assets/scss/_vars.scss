@@ -1,10 +1,11 @@
 :root{
+	--minimum-content-padding: 16px; 
 	--header-r: 24px;
-	--header__btm-h: 75px;
+	--header__btm-h: 75px;	
 	--first-block-mbs: -30px;
 	--ff-prim: 'Roboto', sans-serif;
 	--ff-sec: 'Bebas', sans-serif;
-	--fz-0: 16px;
+	--fz-0: clamp(12px, 0.5192rem + 0.4808vi, 16px);
 	--fz-s: 14px;
 	--fw-l: 300;
 	--fw-r: 400;
@@ -32,4 +33,10 @@
 	--clr-white: #fff;
 	--clr-black: #000;  
 	--tr: .3s ease-in-out;
+	@media (max-width: 992px) {
+		--header__btm-h: 59px;
+	}
+	@media (max-width: 580px) {
+		--header__btm-h: 42px;
+	}
 }

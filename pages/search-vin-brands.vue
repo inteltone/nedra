@@ -1,3 +1,9 @@
+<script setup>
+const BRANDS = [
+	{img: 'audi', name: 'Audi'},{img: 'bmw', name: 'BMW'},{img: 'mersedes', name: 'Mersedes-Benz'},{img: 'skoda', name: 'Skoda'},{img: 'audi', name: 'Audi'},{img: 'bmw', name: 'BMW'},{img: 'mersedes', name: 'Mersedes-Benz'},{img: 'skoda', name: 'Skoda'},{img: 'audi', name: 'Audi'},{img: 'bmw', name: 'BMW'},{img: 'mersedes', name: 'Mersedes-Benz'},{img: 'skoda', name: 'Skoda'},
+]
+const brands = reactive(BRANDS)
+</script>
 <template>
 	<NuxtLayout>
 		<ul class="breadcrums">
@@ -9,90 +15,29 @@
 			</li>
 		</ul>		
 		<ThePageTitle class="search-vin-brands__title" title="Оригинальный каталог" />
-		<form class="search-vin-brands__form" >
-			<span class="search-vin-brands__form-title">Поиск по VIN номеру</span>
-			<input type="search" placeholder="Введите VIN номер, например, WAUZZZ00121415125">
-			<BaseButton text="Найти" />
-		</form>
-		<div class="brands-output">
-			<div class="brands-output__item">
-				<div class="brands-output__item-img">
-					<img src="/assets/images/brands/audi.png" alt="">
-				</div>
-				<div class="brands-output__item-name">AUDI</div>
+		<div class="search-vin-brands">
+			<form class="search-vin-brands__form" >
+				<span class="search-vin-brands__form-title">Поиск по VIN номеру</span>
+				<input type="search" placeholder="Введите VIN номер, например, WAUZZZ00121415125">
+				<BaseButton text="Найти" />
+			</form>
+			<div class="brands-output auto-grid">
+				<NuxtLink to="/" class="brands-output__item" v-for="brand in brands" :key="brand.name">
+					<div class="brands-output__item-img">
+						<img :src="`/images/brands/${brand.img}.png`" :alt="`Логотип ${brand.name}`">
+					</div>
+					<div class="brands-output__item-name">{{ brand.name }}</div>
+				</NuxtLink>
 			</div>
-			<div class="brands-output__item">
-				<div class="brands-output__item-img">
-					<img src="/assets/images/brands/bmw.png" alt="">
-				</div>
-				<div class="brands-output__item-name">BMW</div>
-			</div>
-			<div class="brands-output__item">
-				<div class="brands-output__item-img">
-					<img src="/assets/images/brands/mersedes.png" alt="">
-				</div>
-				<div class="brands-output__item-name">Mersedes-Benz</div>
-			</div>
-			<div class="brands-output__item">
-				<div class="brands-output__item-img">
-					<img src="/assets/images/brands/skoda.png" alt="">
-				</div>
-				<div class="brands-output__item-name">Skoda</div>
-			</div>
-			<div class="brands-output__item">
-				<div class="brands-output__item-img">
-					<img src="/assets/images/brands/audi.png" alt="">
-				</div>
-				<div class="brands-output__item-name">AUDI</div>
-			</div>
-			<div class="brands-output__item">
-				<div class="brands-output__item-img">
-					<img src="/assets/images/brands/bmw.png" alt="">
-				</div>
-				<div class="brands-output__item-name">BMW</div>
-			</div>
-			<div class="brands-output__item">
-				<div class="brands-output__item-img">
-					<img src="/assets/images/brands/mersedes.png" alt="">
-				</div>
-				<div class="brands-output__item-name">Mersedes-Benz</div>
-			</div>
-			<div class="brands-output__item">
-				<div class="brands-output__item-img">
-					<img src="/assets/images/brands/skoda.png" alt="">
-				</div>
-				<div class="brands-output__item-name">Skoda</div>
-			</div>
-			<div class="brands-output__item">
-				<div class="brands-output__item-img">
-					<img src="/assets/images/brands/audi.png" alt="">
-				</div>
-				<div class="brands-output__item-name">AUDI</div>
-			</div>
-			<div class="brands-output__item">
-				<div class="brands-output__item-img">
-					<img src="/assets/images/brands/bmw.png" alt="">
-				</div>
-				<div class="brands-output__item-name">BMW</div>
-			</div>
-			<div class="brands-output__item">
-				<div class="brands-output__item-img">
-					<img src="/assets/images/brands/mersedes.png" alt="">
-				</div>
-				<div class="brands-output__item-name">Mersedes-Benz</div>
-			</div>
-			<div class="brands-output__item">
-				<div class="brands-output__item-img">
-					<img src="/assets/images/brands/skoda.png" alt="">
-				</div>
-				<div class="brands-output__item-name">Skoda</div>
-			</div>
+			<BaseButton class="search-vin-brands__btn" text="Все бренды" />
 		</div>
 	</NuxtLayout>
 </template>
 
 <style lang="scss">
 .search-vin-brands{
+	display: grid;
+	gap: 24px 0;
 	&__title{
 		max-inline-size: unset;
 		margin-block-end: 46px;
@@ -102,7 +47,6 @@
 		align-items: center;
 		gap: 0 26px;
 		block-size: 81px;
-		margin-block-end: 24px;
 		padding-inline: 26px;
 		background-color: var(--clr-gray-100);
 		border-radius: 8px;		
@@ -128,17 +72,24 @@
 	}
 }
 .brands-output{
-	display: grid;
-	grid-template-columns: repeat(6,1fr);
-	gap: 20px;
+	&.auto-grid{
+		--min-w: 230px;
+	}
 	&__item{
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
 		padding: 7px 0 8px;
+		color: var(--clr-text);
 		border: 1px solid var(--clr-gray);
 		border-radius: 8px;
+		transition: color var(--tr);
+		@media(hover: hover){
+		 &:hover{
+			color: var(--clr-orange-100);
+		 }
+		}
 		&-img{
 			aspect-ratio: 1;
 			inline-size: min(122px,100%);

@@ -11,20 +11,20 @@
 		<section class="columns-2 search-artikul">
 			<ThePageTitle class="columns-2__title" title="Поиск по артикулу" />
 			<div class="columns-2__content">
-					<div class="search-artikul__table">
-						<div class="search-artikul__table-row table-head">
-							<span>Производитель</span>
-							<span>Артикул</span>
-							<span>Наименование</span>
-							<span>Цена, ₽</span>
-						</div>
-						<div class="search-artikul__table-row" v-for="item in 5">
-							<span>CASE</span>
-							<span>C110</span>
-							<span>CASE C110</span>
-							<span>2720</span>
-						</div>
+				<div class="search-artikul__table">
+					<div class="search-artikul__table-row table-head">
+						<span>Производитель</span>
+						<span>Артикул</span>
+						<span>Наименование</span>
+						<span>Цена, ₽</span>
 					</div>
+					<NuxtLink to="/" class="search-artikul__table-row" v-for="item in 5">
+						<span>CASE</span>
+						<span>C110</span>
+						<span>CASE C110</span>
+						<span>2720</span>
+					</NuxtLink>
+				</div>
 			</div>
 		</section>		
 	</NuxtLayout>
@@ -49,8 +49,10 @@
 			&-row{
 				display: grid;
 				grid-template-columns: 1fr var(--col-w) calc(var(--gap) + var(--col-w) * 2) var(--col-w);
-				padding-block: 24px;				
+				padding-block: 24px;
+				color: var(--clr-text);
 				border-radius: 8px;
+				transition: background-color var(--tr);			
 				span{
 					display: block;
 					&:not(:nth-child(1)){
@@ -62,6 +64,11 @@
 				}
 				&:not(.table-head):nth-child(even){
 					background-color: var(--clr-gray-25);
+				}
+				@media(hover: hover){
+				  &:hover:not(.table-head){
+					 background-color: var(--clr-orange-50);
+				  }
 				}
 			}
 		}
