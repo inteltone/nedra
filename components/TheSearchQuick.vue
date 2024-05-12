@@ -19,16 +19,9 @@ let isDisabled = ref(true)
 				<div class="search-quick__brand">
 					<p class="search-quick-title">Поиск по Бренду</p>
 					<form class="search-quick__brand-form">
-						<div 
-							class="select" 
-							:class="{active: false}"
-							v-for="item,index in categories" 
-							:key="item"
-						>
-							<div 
-								class="option active" 
-								@click="false"
-							>
+						<div class="search-quick__brand-select select" :class="{active: false}"	v-for="item,index in categories" 
+							:key="item">
+							<div class="option active" @click="false">
 							{{ item }}
 							<i class="icon-arrow-down" :class="{rotate: false}"></i>
 							</div>
@@ -141,64 +134,10 @@ let isDisabled = ref(true)
 			grid-template-columns: repeat(3,1fr);
 			grid-template-rows: min-content;
 			gap: 16px;
-		}
-		.select{
-			--pad-i: 24px;
-			display: flex;
-			align-items: center;
-			block-size: 42px;
-			position: relative;			
-			background-color: var(--clr-white);
-			border-radius: 8px;
-			&.active{
-				position: relative;
-				z-index: 1;
-			}
-		}
-		.options{
-			overflow: hidden;
-			display: none;
-			position: absolute;
-			inset-block-start: calc(100% + 2px);
-			inline-size: 100%;
-			background-color: var(--clr-white);
-			border-radius: 8px;
-			&>*{
-				display: flex;
-				align-items: center;
-				block-size: 32px;
-				padding-inline: var(--pad-i);
-				transition: background-color var(--tr);
-			}
-			@media(hover: hover){
-			  &>*:hover{
-				background-color: var(--clr-gray-50);
-			  }
-			}
-			&.show{
-				display: block;
-			}
-		}
-		.option{
-			cursor: pointer;
-		}
-		.option.active{			
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			gap: 0 10px;
-			inline-size: 100%;
-			block-size: 100%;
-			padding-inline: var(--pad-i);
-			[class^="icon-"]{
-				flex-shrink: 0;
-				font-size: 16px;
-				transition: transform var(--tr);
-			}
-			[class^="icon-"].rotate{
-				transform: rotate(-180deg);
-			}
-		}
+		}	
+		&-select{
+			border: none;
+		}	
 		&-btn{
 			block-size: 42px;
 			font-size: 10px;

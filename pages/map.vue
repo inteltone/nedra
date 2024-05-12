@@ -1,8 +1,8 @@
 <template>
 	<NuxtLayout>	
-		<div class="map">
-			<p class="map__title">Карта сайта</p>
-			<div class="map__list">
+		<div class="map-site">
+			<p class="map-site__title">Карта сайта</p>
+			<div class="map-site__list">
 				<NuxtLink to="/oplata">Оплата</NuxtLink>
 				<NuxtLink to="/delivery">Доставка</NuxtLink>
 				<NuxtLink to="/suppliers">Поставщикам</NuxtLink>
@@ -18,7 +18,7 @@
 	</NuxtLayout>
 </template>
 <style lang="scss">
-.map{	
+.map-site{	
 	inline-size: max-content;
 	margin-block-end: 24px;
 	padding: 18px 24px;

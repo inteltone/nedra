@@ -3,6 +3,7 @@
 		<TheHero />
 		<TheCatalogs />
 		<TheSearchQuick />
+		<TheMap />
 		<TheAboutCompany />
 		<TheNewsBlock class="news-block-main" title="Новости" />				
 	</NuxtLayout>

@@ -15,7 +15,7 @@
 			<ThePageTitle class="columns-2__title" title="Интернет-магазин в Ростове-на-Дону" />
 			<div class="columns-2__content shop">
 				<div class="shop__map">
-					<img src="/assets/images/misc/map.png" alt="">
+					<img src="/assets/images/misc/map-shop.png" alt="">
 				</div>
 			</div>
 		</section>
