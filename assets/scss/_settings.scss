@@ -25,7 +25,6 @@ h3, .h3 { font-size: 16px; font-weight: var(--fw-b); }
 #__nuxt > * { grid-column: content; }
 .container > * { grid-column: content; }
 #__nuxt,.container {
-// --minimum-content-padding: 16px;
  --full-max-width: 1fr;
  --content-max-width: 1600px;
  --full: minmax( var(--minimum-content-padding), 1fr );

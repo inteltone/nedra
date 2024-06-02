@@ -4,5 +4,5 @@
 		<slot></slot>
 	</main>
 	<TheFooter />
-	<PopupAuthorization />
+	<ThePopupAuthorization />
 </template>

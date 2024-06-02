@@ -48,17 +48,3 @@
 		</section>		
 	</NuxtLayout>
 </template>
-
-<style lang="scss">
-.delivery{		
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 20px;
-}
-.delivery :first-child{
-	.com-card__img {
-		aspect-ratio: 1.3889;
-		inline-size: 263px;
-	}	
-}
-</style>

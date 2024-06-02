@@ -62,17 +62,3 @@
 		</section>		
 	</NuxtLayout>
 </template>
-<style lang="scss">
-.news{
-	display: grid;
-	gap: 32px 0;
-	&__list{		
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 42px 20px;		
-	}
-	&__btn{
-		grid-column: 5 / -1;
-	}
-}
-</style>

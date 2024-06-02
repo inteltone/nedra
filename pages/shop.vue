@@ -34,28 +34,3 @@
 		</ul>
 	</NuxtLayout>
 </template>
-<style lang="scss">
-.columns-2--shop{
-	margin-block-end: 135px;
-}
-.shop{	
-	&__map{
-		grid-column: 5 / -1;
-		overflow: hidden;
-		aspect-ratio: 1.9537;
-		border-radius: 24px;
-		img{
-			object-fit: cover;
-			block-size: 100%;
-		}
-	}
-}
-.advantages{	
-	.icon-near{
-		font-size: 70px;
-	}
-	&.auto-grid{
-		--min-w: 380px;
-	}
-}
-</style>

@@ -37,39 +37,3 @@
 		</section>		
 	</NuxtLayout>
 </template>
-
-<style lang="scss">		
-	.oplata{		
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 20px;
-	}
-	.com-card{	
-		display: flex;
-		flex-direction: column;		
-		&__content{
-			flex-grow: 1;
-			margin-block-start: -130px;
-			padding: 116px 37px 74px;
-			background-color: var(--clr-gray-25);
-			border-radius: 24px;
-		}
-		&__title{
-			margin-block-end: 16px;
-			font-size: 16px;
-		}		
-		&__desc > p + p{
-			margin-block-start: 16px;
-		}				
-		&__img{
-			overflow: hidden;
-			position: relative;
-			aspect-ratio: 1.1648;
-			inline-size: 219px;
-			margin-inline-start: 37px;
-			img{	
-				object-fit: cover;
-			}
-		}
-	}
-</style>

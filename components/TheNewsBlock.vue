@@ -55,18 +55,3 @@ defineProps({
 			<BaseButton class="news-block-btn" text="Все новости" />
 		</div>
 </template>
-<style lang="scss">
-.news-block{	
-	grid-column: 1 / -1;
-	display: grid;	
-	&__title{
-		margin-block-end: 24px;
-	}
-	&__list{
-		margin-block-end: 48px;
-		&.auto-grid{
-			--min-w: 300px;
-		}
-	}	
-}
-</style>
