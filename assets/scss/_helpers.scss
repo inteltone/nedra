@@ -2897,6 +2897,101 @@ textarea{
 		grid-column: 9 / -1;	
 	}
 }
+// -------- каталог --------------------
+.catalog{
+	display: grid;
+	grid-template-columns: 250px 1fr;
+	gap: 0 var(--gutter);
+	&__title{
+		margin-block-end: 84px;
+	}
+	&__aside{}
+	&__content{		
+		.auto-grid{
+			--min-w: 230px;
+		}
+	}
+}
+.select-cat{
+	&__selected{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0 10px;
+		margin-block-end: 4px;
+		padding: 12px 15px;
+		border: 1px solid var(--clr-gray);
+		border-radius: 8px;
+		cursor: pointer;
+		&.active{
+			border-color: var(--clr-black);
+		}
+		&.hasChecked{
+			color: var(--clr-white);
+			background-color: var(--clr-orange-100);
+			border-color: var(--clr-orange-100);
+		}
+		i{
+			font-size: 18px;
+			transition: transform var(--tr);
+		}
+		i.rotate{
+			transform: rotate(-180deg);
+		}
+	}
+	&__drop{
+		display: grid;
+		grid-template-rows: 0fr;
+		border: 1px solid transparent;		
+		border-radius: 8px;
+		transition: grid-template-rows var(--tr), padding-block var(--tr), border-color var(--tr);
+		&-inner{
+			overflow: hidden;
+			display: grid;
+			gap: 8px 0;
+			padding-inline: 15px;
+			label{
+				display: flex;
+				gap: 0 10px;
+				cursor: pointer;
+			}
+		}
+		&.expanded{
+			grid-template-rows: 1fr;			
+			padding-block: 12px;
+			border: 1px solid black;			
+		}
+	}
+}
+.card-cat{
+	display: grid;
+	place-items: center;
+	padding: 7px 21px 8px;
+	color: var(--clr-black);
+	line-height: 1;
+	text-align: center;
+	border: 1px solid var(--clr-gray);
+	border-radius: 8px;
+	transition: color var(--tr), border-color var(--tr);
+	&:hover{
+		color: var(--clr-orange-100);
+		border-color: var(--clr-orange-100);
+		img{
+			transform: scale(1.05);
+		}
+	}
+	&__img{
+		overflow: hidden;
+		aspect-ratio: 1;
+		inline-size: 122px;
+		img{
+			inline-size: 100%;
+			object-fit: contain;
+			block-size: 100%;
+			transition: transform var(--tr);
+		}
+	}	
+}
 
 ///////////////////////////////////////
 ///////// РАЗНОЕ / MISC ///////////////
