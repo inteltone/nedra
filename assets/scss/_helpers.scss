@@ -101,6 +101,36 @@ textarea{
 		}
 	}
 }
+.radio{
+	position: relative;
+	inline-size: 24px;
+	block-size: 24px;
+	background-color: var(--clr-gray-100);
+	border-radius: 4px;
+	input{
+		position: absolute;
+		z-index: -1;
+		inset: 0;
+		cursor: pointer;
+	}
+	
+	&:has(input:checked){
+		background-color: transparent;
+		border: 1px solid var(--clr-black);	
+		&::before{
+			content: '';
+			position: absolute;
+			inset-inline-start: 50%;
+			inset-block-start: 50%;
+			transform: translate(-50%,-50%);
+			inline-size: 16px;
+			block-size: 16px;
+			background-color: var(--clr-black);
+			border-radius: 2px;
+			pointer-events: none;
+		}	
+	}
+}
 
 // ------- BUTTONS ------------------
 .btn{
@@ -148,7 +178,7 @@ textarea{
 			opacity: 0;
 			transition: opacity var(--tr) .3s;
 		}
-	}
+	}	
 }
 .btn-ghost{
 	display: flex;
@@ -206,6 +236,32 @@ textarea{
 	&:hover{
 		color: var(--clr-white);
 		background-color: var(--clr-black);
+	}
+}
+.btn-prod{
+	display: grid;
+	place-items: center;
+	max-inline-size: 383px;
+	inline-size: 100%;
+	block-size: 87px;
+	color: var(--clr-white);
+	background-color: var(--clr-black);
+	font-family: var(--ff-sec);
+	border: 1px solid var(--clr-black);
+	border-radius: 8px;
+	transition: background-color var(--tr), border-color var(--tr);
+	&:hover{
+		background-color: var(--clr-orange-100);
+		border-color: var(--clr-orange-100);
+	}
+	&--unavailable{
+		color: var(--clr-black);
+		background-color: var(--clr-white);
+		border-color: var(--clr-gray-100);
+		&:hover{
+			background-color: transparent;
+			border-color: var(--clr-gray-100);
+		}
 	}
 }
 
@@ -463,60 +519,21 @@ textarea{
 		&-select{
 			display: flex;
 			align-items: center;
-			inline-size: clamp(200px, 7.2917rem + 8.3333vi, 250px);
-			&>*{
-				flex: 0 0;
-			}
+			inline-size: clamp(200px, 7.2917rem + 8.3333vi, 250px);			
 			.icon-location{
 				margin-inline-end: 6px;
 			}
 			.title{
 				margin-inline-end: 8px;
 				font-weight: var(--fw-b);
-			}
-			.options{
-				position: relative;
-				flex-direction: column;				
-			}			
+			}						
 			.option{
-				display: block;
+				inline-size: max-content;
 				cursor: pointer;
 				&:first-child{
 					inline-size: max-content;
 				}				
-			}
-			.dropdown{
-				overflow: hidden;
-				position: absolute;
-				visibility: hidden;
-				opacity: 0;
-				min-inline-size: 140px;
-				padding-block: 5px;
-				background-color: var(--clr-white);
-				border: 1px solid var(--clr-gray-100);
-				border-radius: 8px;
-				transform: translateY(-10px);
-				transition: opacity .3s ease-in-out, visibility 0s linear .3s, transform .3s ease-in-out;
-				&.open{
-					visibility: visible;
-					opacity: 1;
-					transform: translateY(0px);
-					transition: opacity  .3s ease-in-out, visibility 0s linear, transform .3s ease-in-out;
-				}
-				.option{
-					display: grid;
-					place-items: center;
-					inline-size: 100%;
-					block-size: 30px;
-					line-height: 1.1;
-					text-align: center;
-					cursor: pointer;
-					transition: background-color var(--tr);
-					&:hover{
-						background-color: var(--clr-gray-25);
-					}
-				}
-			}
+			}			
 			.select-icon{
 				display: grid;
 				place-items: center;
@@ -1400,9 +1417,12 @@ textarea{
 	}
 }
 
-// -------- попап ---------------------
+// -------- попапы ---------------------
 .popup{
 	--popup-w: 519px;
+	&:has(.city){
+		--popup-w: 1060px;
+	}
 	inline-size: min(var(--popup-w),100%);
 	padding: unset;
 	border: none;
@@ -1417,6 +1437,9 @@ textarea{
 		position: relative;
 		inline-size:100%;
 		padding: 93px 74px 95px;
+		&.city{			
+			padding: 50px;
+		}
 	}
 	&__form{
 		.form-group{
@@ -1484,6 +1507,178 @@ textarea{
 	block-size: 48px;
 	border: 1px solid var(--clr-black);
 	border-radius: 8px;
+}
+.city{
+	&__search{
+		position: relative;
+		display: grid;
+		margin-block-end: 48px;
+		padding: 5px 8px 5px 44px;
+		background-color: var(--clr-gray-100);
+		border-radius: 8px;
+		&>i{
+			position: absolute;
+			inset-inline-start: 10px;
+			inset-block-start: 50%;
+			transform: translateY(-50%);
+			font-size: 21px;
+		}
+		input{
+			inline-size: 100%;
+			block-size: 32px;
+			padding-inline-end: 48px;
+			background-color: transparent;
+			border: none;
+			&:focus-visible{
+				outline: none;
+			}
+			&:focus-visible::placeholder{
+				color: transparent;
+			}
+		}
+		button{
+			position: absolute;
+			inset-inline-end: 8px;
+			inset-block-start: 50%;
+			transform: translateY(-50%);
+			display: grid;
+			place-items: center;
+			inline-size: 32px;
+			block-size: 32px;
+			color: var(--clr-white);
+			background-color: var(--clr-black);
+			border-radius: 4px;
+			font-size: 21px;
+			transition: background-color var(--tr);
+			&:hover{
+				background-color: var(--clr-orange-100);
+			}
+		}
+	}
+	&__popular{
+		margin-block-end: 56px;
+		&-title{
+			margin-block-end: 16px;
+			font-weight: var(--fw-b);
+		}
+		&-items{
+			display: flex;
+			flex-wrap: wrap;
+			gap: 16px 48px;
+			max-inline-size: 582px;
+			span{
+				max-inline-size: 162px;
+				inline-size: 100%;
+			}
+		}
+	}
+	&__pick{
+		margin-block-end: 48px;
+		&-title{
+			margin-block-end: 18px;
+			font-weight: var(--fw-b);
+		}
+		&-alphabet{
+			display: flex;
+			flex-wrap: wrap;
+			gap: 16px 0;			
+			span{
+				display: grid;
+				place-items: center;
+				inline-size: 32px;
+				block-size: 24px;
+				text-transform: uppercase;
+				border-radius: 4px;
+				cursor: pointer;
+				transition: color var(--tr), background-color var(--tr);
+				&:hover,&.active{
+					color: var(--clr-white);
+					background-color: var(--clr-orange-100);
+				}
+			}
+		}
+	}
+	&__btm{
+		display: grid;
+		grid-template-columns: .5fr 1.5fr 3fr;
+		gap: 0 px;
+		&-letter{
+			line-height: .9;
+		}
+		&-towns{
+			align-self: start;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 16px 32px;
+			&>span{
+				display: flex;
+				align-items: center;
+				gap: 0 6px;
+				inline-size: 112px;
+				block-size: 24px;
+				padding-inline: 12px;
+				border-radius: 4px;
+				cursor: pointer;
+				transition: color var(--tr), background-color var(--tr);
+				&:hover,&.active{
+					color: var(--clr-white);
+					background-color: var(--clr-orange-100);
+				}
+				.franchise{
+					min-inline-size: 8px;
+					block-size: 8px;
+					background-color: var(--clr-orange-100);
+					border-radius: 2px;					
+				}
+			}
+		}
+		&-shops{
+			display: grid;
+			gap: 24px;
+			padding: 32px 40px;
+			border: 1px solid var(--clr-gray);
+			border-radius: 24px;
+			.shops{
+				&__title{
+					margin-block-end: 24px;
+					font-weight: var(--fw-b);
+				}
+				&__list{
+					display: grid;
+					gap: 16px 0;
+					label{
+						display: flex;
+						align-items: center;
+						gap: 0 16px;
+						cursor: pointer;
+					}
+				}
+			}
+			.no-shops{
+				&__text{
+					margin-block-end: 32px;
+					&>*+*{
+						margin-block-start: 16px;
+					}
+				}
+				&__contacts{
+					display: flex;
+					flex-wrap: wrap;
+					gap: 16px 76px;
+					a{
+						display: flex;
+						align-items: center;
+						gap: 8px;
+						color: var(--clr-black);
+						font-weight: var(--fw-b);
+						i{
+							font-size: 21px;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 // -------- о компании ----------------
@@ -2897,7 +3092,7 @@ textarea{
 		grid-column: 9 / -1;	
 	}
 }
-// -------- каталог --------------------
+// -------- каталог запчастей ----------
 .catalog{
 	display: grid;
 	grid-template-columns: 250px 1fr;
@@ -2992,16 +3187,67 @@ textarea{
 		}
 	}	
 }
+.card-product{
+	padding: 16px;
+	color: var(--clr-black);
+	border: 1px solid var(--clr-gray);
+	border-radius: 8px;
+	transition: border-color var(--tr);
+	&__img{
+		overflow: hidden;
+		inline-size: 100%;
+		block-size: 123px;
+		margin-block-end: 32px;
+		img{
+			inline-size: 100%;
+			object-fit: contain;
+			block-size: 100%;
+		}
+	}
+	&__title{
+		margin-block-end: 16px;		
+	}
+	&__list{
+		display: grid;
+		gap: 8px;
+		margin-block-end: 24px;
+		&-item{
+			display: flex;
+			justify-content: space-between;
+			gap: 10px;
+			font-size: 12px;
+			line-height: 1.5;
+		}
+	}
+	.btn{
+		block-size: 39px;
+		font-size: 12px;
+		line-height: 1.5;
+	}
+	&:hover{
+		border-color: var(--clr-orange-100);
+		.btn{
+			background-color: var(--clr-orange-100);
+		}
+	}	
+}
 
 ///////////////////////////////////////
 ///////// РАЗНОЕ / MISC ///////////////
 ///////////////////////////////////////
+// SIZES 
+.max-i-s-unset{
+	max-inline-size: unset;
+}
 // MARGINS
 .mbe-16{
 	margin-block-end: 16px;
 }
 .mbe-47{
 	margin-block-end: 47px;
+}
+.mbe-68{
+	margin-block-end: 68px;
 }
 // FONT WEIGHT
 .fw-b{

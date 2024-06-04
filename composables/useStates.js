@@ -4,6 +4,9 @@ export const useLoggedIn = () => {
 export const usePopupAuth = () => {
 	return useState('isPopupAuth', () => false )
 }
+export const usePopupCity = () => {
+	return useState('isPopupCity', () => false )
+}
 export const useCabMenuIndex = () => {
 	return useState('cabMenuIndex', () => 0 )
 }

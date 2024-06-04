@@ -1,41 +1,19 @@
 <script setup>
 const isPopupAuth = usePopupAuth()
+const isPopupCity = usePopupCity()
 const isLoggedIn = useLoggedIn()
 const isUserMenu = useUserMenu()
-const showPopupAuth = () => {
-	isPopupAuth.value = !isPopupAuth.value		
-}
-const CITIES = ['Ростов-на-Дону','Липецк','Воронеж','Орел','Тула']
-const cities = ref(CITIES)
-let index = ref(0)
-const pickCity = (i) => {
-	isPickCityDrop.value = false
-	index.value = i
-}
-let isPickCityDrop = ref(false)
-function openPickCityDrop() { isPickCityDrop.value = !isPickCityDrop.value }
+const showPopupAuth = () => {	isPopupAuth.value = !isPopupAuth.value	}
 let show_search_input = ref(false)
-
 </script>
 <template>
 	<header class="header full container">
 		<div class="header__top">
-			<div class="header__top-select">
+			<div class="header__top-select" @click="isPopupCity = true">
 				<i class="icon-location"></i>
 				<span class="title">Город:</span>
-				<div class="options">					
-					<span class="option" @click="openPickCityDrop">{{ cities[index] }}</span>
-					<div class="dropdown" :class="{open: isPickCityDrop}">
-						<span 
-							class="option" 
-							v-for="city,i in cities" 
-							:key="city" 
-							@click="pickCity(i)"
-							v-show="index !== i"
-						>{{ city }}</span>						
-					</div>
-				</div>
-				<div class="select-icon" :class="{rotate: isPickCityDrop}" @click="openPickCityDrop">
+				<span class="option">Ростов-на-Дону</span>			
+				<div class="select-icon">
 					<i class="icon-arrow-down"></i>
 				</div>
 			</div>

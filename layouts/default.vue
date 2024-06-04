@@ -5,4 +5,5 @@
 	</main>
 	<TheFooter />
 	<ThePopupAuthorization />
+	<ThePopupCity />
 </template>
