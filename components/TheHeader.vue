@@ -3,7 +3,7 @@ const isPopupAuth = usePopupAuth()
 const isPopupCity = usePopupCity()
 const isLoggedIn = useLoggedIn()
 const isUserMenu = useUserMenu()
-const showPopupAuth = () => {	isPopupAuth.value = !isPopupAuth.value	}
+const showPopupAuth = () => {	isPopupAuth.value = true }
 let show_search_input = ref(false)
 </script>
 <template>
@@ -97,6 +97,7 @@ let show_search_input = ref(false)
 				</div>
 				<span>Корзина</span>				
 			</NuxtLink>
+			<TheBasketItem />
 		</div>		
 	</header>	
 </template>

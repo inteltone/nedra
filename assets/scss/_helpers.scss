@@ -55,6 +55,7 @@ textarea{
 	padding: 24px;
 	border: none;
 	border-radius: 8px;
+	resize: none;
 	&:focus-visible{
 		outline: none;
 		border: 1px solid var(--clr-black);
@@ -385,7 +386,7 @@ textarea{
 		block-size: 100%;
 		padding-inline: var(--pad-i);
 		:nth-child(1){
-			flex-grow: 1;
+			// flex-grow: 1;
 		}
 		[class^="icon-"]{
 			flex-shrink: 0;
@@ -497,7 +498,7 @@ textarea{
 ///////// КОМПОНЕНТЫ / COMPONENTS /////
 ///////////////////////////////////////
 
-// -------- header --------------------
+// -------- TheHeader --------------------
 .header{	
 	--pad-bs: clamp(6px, -2.3783rem + 4.4408vi, 33px);
 	--top-bz: 24px;
@@ -619,6 +620,7 @@ textarea{
 		}
 	}
 	&__btm{
+		position: relative;
 		display: flex;
 		align-items: center;
 		block-size: var(--header__btm-h);
@@ -893,7 +895,7 @@ textarea{
 	}
 }
 
-// -------- breadcrums ----------------
+// -------- TheBreadcrum ----------------
 .breadcrums{
 	--mie: 4px;
 	display: flex;
@@ -916,12 +918,12 @@ textarea{
 	}
 }
 
-// -------- заголовок страницы / h1 ---
+// -------- ThePageTitle / h1 ---
 .page-title{
 	max-inline-size: 250px;
 }
 
-// -------- hero ----------------------
+// -------- TheHero на Главной ----------------------
 .hero{
 	margin-block-end: 32px;
 	padding-block-start: 8vw;
@@ -1104,7 +1106,7 @@ textarea{
 	}
 }
 
-// -------- каталоги ------------------
+// -------- TheCatalogs на Главной ------------------
 .catalogs{
 	--gap: 5px;
 	display: grid;
@@ -1113,7 +1115,7 @@ textarea{
 	gap: var(--gap);
 	block-size: 464px;
 	margin-block-end: 48px;
-	.catalog{
+	.catal{
 		display: grid;
 		grid-template-rows: min-content;
 		position: relative;
@@ -1178,20 +1180,20 @@ textarea{
 			}
 		}
 	}
-	.catalog:hover{
+	.catal:hover{
 		position: relative;
 		z-index: 1;
 		inline-size: 80%;
 		background-color: var(--clr-orange-100);
 		border-radius: 8px;
-		.catalog__img{
+		.catal__img{
 			transform: scale(1.1);
 		}		
 	}
-	.catalog:hover::after{
+	.catal:hover::after{
 		inline-size: 70px;
 	}
-	.catalog:nth-child(6):hover,.catalog:nth-child(7):hover{
+	.catal:nth-child(6):hover,.catal:nth-child(7):hover{
 		inline-size: unset;
 		img{
 			transform: translateY(-20%) scale(1.1);
@@ -1199,7 +1201,7 @@ textarea{
 	}
 }
 
-// -------- быстрый поиск на Главной --
+// -------- TheSearchQuick на Главной --
 .search-quick-wrap{
 	background-image: url('../../assets/images/misc/search-quick-bg.jpg');
 	background-position: center;
@@ -1370,7 +1372,7 @@ textarea{
 	}
 }
 
-// -------- карта / map ---------------
+// -------- TheMap на Главной ---------------
 .map{
 	position: relative;
 	display: grid;
@@ -1417,271 +1419,7 @@ textarea{
 	}
 }
 
-// -------- попапы ---------------------
-.popup{
-	--popup-w: 519px;
-	&:has(.city){
-		--popup-w: 1060px;
-	}
-	inline-size: min(var(--popup-w),100%);
-	padding: unset;
-	border: none;
-	border-radius: 24px;
-	&::backdrop {
-		  background-color: hsl(0 0% 0% / 0.75);
-	}
-	&__title{
-		margin-block-end: 14px;
-	}
-	&__inner{
-		position: relative;
-		inline-size:100%;
-		padding: 93px 74px 95px;
-		&.city{			
-			padding: 50px;
-		}
-	}
-	&__form{
-		.form-group{
-			margin-block-end: 16px;
-		}
-		&-extra{
-			display: flex;
-			gap: 26px;
-			margin-block-end: 48px;
-			&>*{
-				color: var(--clr-text);
-				text-decoration-line: underline;
-				  text-underline-offset: 4px;
-				transition: color var(--tr), text-decoration-color var(--tr);
-				&:hover{
-					color: var(--clr-orange-100);
-					text-decoration-color: transparent;
-				}
-			}
-		}
-	}
-	&::-webkit-scrollbar {
-		width: 6px;
-	 }
-	 &::-webkit-scrollbar-track {
-		background-color: transparent;
-		border-radius: 100vw;
-	 }
-	 &::-webkit-scrollbar-thumb {
-		background-color: var(--clr-orange-50);
-		border-radius: 100vw;
-	 }
-}
-.popup--my-auto{
-	--popup-w: 787px;
-	.popup__title{
-		margin-block-end: 21px;
-	}
-	.popup__form{
-		display: grid;
-	}
-	.form-groups{
-		display: flex;
-		flex-wrap: wrap;
-		gap: calc(var(--gutter) / 4) var(--gutter);
-		margin-block-end: calc(var(--gutter) / 4);
-	}
-	.form-group{
-		flex-basis: calc(50% - var(--gutter) / 2);
-	}
-	textarea{
-		margin-block-end: 24px;
-	}
-	.popup__form-btn{
-		justify-self: center;
-	}
-}
-.close{
-	position: absolute;
-	inset-inline-end: 26px;
-	inset-block-start: 26px;
-	display: grid;
-	place-items: center;
-	inline-size: 48px;
-	block-size: 48px;
-	border: 1px solid var(--clr-black);
-	border-radius: 8px;
-}
-.city{
-	&__search{
-		position: relative;
-		display: grid;
-		margin-block-end: 48px;
-		padding: 5px 8px 5px 44px;
-		background-color: var(--clr-gray-100);
-		border-radius: 8px;
-		&>i{
-			position: absolute;
-			inset-inline-start: 10px;
-			inset-block-start: 50%;
-			transform: translateY(-50%);
-			font-size: 21px;
-		}
-		input{
-			inline-size: 100%;
-			block-size: 32px;
-			padding-inline-end: 48px;
-			background-color: transparent;
-			border: none;
-			&:focus-visible{
-				outline: none;
-			}
-			&:focus-visible::placeholder{
-				color: transparent;
-			}
-		}
-		button{
-			position: absolute;
-			inset-inline-end: 8px;
-			inset-block-start: 50%;
-			transform: translateY(-50%);
-			display: grid;
-			place-items: center;
-			inline-size: 32px;
-			block-size: 32px;
-			color: var(--clr-white);
-			background-color: var(--clr-black);
-			border-radius: 4px;
-			font-size: 21px;
-			transition: background-color var(--tr);
-			&:hover{
-				background-color: var(--clr-orange-100);
-			}
-		}
-	}
-	&__popular{
-		margin-block-end: 56px;
-		&-title{
-			margin-block-end: 16px;
-			font-weight: var(--fw-b);
-		}
-		&-items{
-			display: flex;
-			flex-wrap: wrap;
-			gap: 16px 48px;
-			max-inline-size: 582px;
-			span{
-				max-inline-size: 162px;
-				inline-size: 100%;
-			}
-		}
-	}
-	&__pick{
-		margin-block-end: 48px;
-		&-title{
-			margin-block-end: 18px;
-			font-weight: var(--fw-b);
-		}
-		&-alphabet{
-			display: flex;
-			flex-wrap: wrap;
-			gap: 16px 0;			
-			span{
-				display: grid;
-				place-items: center;
-				inline-size: 32px;
-				block-size: 24px;
-				text-transform: uppercase;
-				border-radius: 4px;
-				cursor: pointer;
-				transition: color var(--tr), background-color var(--tr);
-				&:hover,&.active{
-					color: var(--clr-white);
-					background-color: var(--clr-orange-100);
-				}
-			}
-		}
-	}
-	&__btm{
-		display: grid;
-		grid-template-columns: .5fr 1.5fr 3fr;
-		gap: 0 px;
-		&-letter{
-			line-height: .9;
-		}
-		&-towns{
-			align-self: start;
-			display: flex;
-			flex-wrap: wrap;
-			gap: 16px 32px;
-			&>span{
-				display: flex;
-				align-items: center;
-				gap: 0 6px;
-				inline-size: 112px;
-				block-size: 24px;
-				padding-inline: 12px;
-				border-radius: 4px;
-				cursor: pointer;
-				transition: color var(--tr), background-color var(--tr);
-				&:hover,&.active{
-					color: var(--clr-white);
-					background-color: var(--clr-orange-100);
-				}
-				.franchise{
-					min-inline-size: 8px;
-					block-size: 8px;
-					background-color: var(--clr-orange-100);
-					border-radius: 2px;					
-				}
-			}
-		}
-		&-shops{
-			display: grid;
-			gap: 24px;
-			padding: 32px 40px;
-			border: 1px solid var(--clr-gray);
-			border-radius: 24px;
-			.shops{
-				&__title{
-					margin-block-end: 24px;
-					font-weight: var(--fw-b);
-				}
-				&__list{
-					display: grid;
-					gap: 16px 0;
-					label{
-						display: flex;
-						align-items: center;
-						gap: 0 16px;
-						cursor: pointer;
-					}
-				}
-			}
-			.no-shops{
-				&__text{
-					margin-block-end: 32px;
-					&>*+*{
-						margin-block-start: 16px;
-					}
-				}
-				&__contacts{
-					display: flex;
-					flex-wrap: wrap;
-					gap: 16px 76px;
-					a{
-						display: flex;
-						align-items: center;
-						gap: 8px;
-						color: var(--clr-black);
-						font-weight: var(--fw-b);
-						i{
-							font-size: 21px;
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-// -------- о компании ----------------
+// -------- TheAboutCompany на Главной ----------------
 .about-company{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -1717,7 +1455,7 @@ textarea{
 	}
 }
 
-// -------- блок новостей -------------
+// -------- TheNewsBlock на Главной и не только -------------
 .news-block{	
 	grid-column: 1 / -1;
 	display: grid;	
@@ -1731,8 +1469,128 @@ textarea{
 		}
 	}	
 }
+// -------- TheBasketItem - при клике на кнопке КОРЗИНА -------------
+.basket-item{
+	position: absolute;
+	inset-inline-end: 50px;
+	inset-block-start: calc(var(--header__btm-h) + 8px);
+	padding: 20px 16px;
+	background-color: var(--clr-white);
+	border: 1px solid var(--clr-black);
+	border-radius: 8px;
+	visibility: hidden;
+	opacity: 0;
+	transform: translateX(200px);
+	transition: opacity var(--tr), visibility var(--tr), transform var(--tr);
+	&__top{
+		display: flex;
+		gap: 0 16px;		
+	}
+	.name{
+		margin-block-end: 8px;
+	}
+	&__mid{
+		display: flex;
+		align-items: center;
+		gap: 0 16px;
+		margin-block-end: 16px;
+		.deliv{
+			display: flex;
+			align-items: center;
+			gap: 0 8px;
+		}
+	}
+	&__form{
+		display: flex;
+		align-items: center;
+		gap: 0 16px;		
+		margin-block-end: 16px;
+		&-btn{
+			inline-size: 189px;
+			block-size: 43px;
+			padding-inline: 0;
+			font-size: 10px;
+		}
+		&-inputs{
+			display: flex;
+			gap: 0 8px;
+			.increment, .decrement{
+				display: grid;
+				place-items: center;
+				inline-size: 24px;
+				block-size: 24px;
+				border: 1px solid var(--clr-black);
+				border-radius: 4px;
+				cursor: pointer;				
+			}			
+			input{
+				inline-size: 32px;
+				block-size: 24px;
+				border: 1px solid var(--clr-black);
+				border-radius: 4px;
+				text-align: center;
+				/* Chrome, Safari, Edge, Opera */
+				&::-webkit-outer-spin-button,
+				&::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+				}
 
-// -------- footer --------------------
+				/* Firefox */
+				&[type=number] {
+				-moz-appearance: textfield;
+				}
+			}
+		}
+	}
+	&__comment{
+		&-title{
+			display: flex;
+			align-items: center;
+			gap: 0 8px;
+			margin-block-end: 8px;
+			cursor: pointer;
+			transition: color var(--tr);			
+			span{
+				text-transform: uppercase;
+				text-decoration-line: underline;
+				text-underline-offset: 3px;
+				transition: text-decoration-color var(--tr);
+				&.active{					
+					text-decoration-color: transparent;					
+				}
+			}
+			&:hover{
+				color: var(--clr-orange-100);
+				span{
+					text-decoration-color: transparent;
+				}
+			}			
+		}
+		.textarea-wrap{
+			overflow: hidden;
+			block-size: 0;
+			transition: block-size var(--tr);
+			textarea{
+				inline-size: 100%;
+				block-size: 85px;
+				padding: 8px 15px;
+				border: 1px solid var(--clr-black);
+				border-radius: 4px;							
+			}
+			&.expanded{
+				block-size: 87px;
+			}
+		}
+	}
+	&.active{
+		visibility: visible;
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+// -------- TheFooter --------------------
 .footer{
 	&__top{
 		block-size: 111px;
@@ -2088,11 +1946,390 @@ textarea{
   }
 }
 
+////////////////////////////////////////
+///////// ПОПАПЫ ///////////////////////
+////////////////////////////////////////
+// базовые стили для попапов +
+// ThePopupAuthorization --- авторизация на сайте
+.popup{
+	--popup-w: 519px;
+	overflow-x: hidden;
+	&:has(.city){
+		--popup-w: 1060px;
+	}
+	&:has(.pop-compar){
+		--popup-w: 1330px;
+		background-color: transparent;
+		border-radius: unset;
+	}
+	inline-size: min(var(--popup-w),100%);
+	padding: unset;
+	border: none;
+	border-radius: 24px;
+	&::backdrop {
+		  background-color: hsl(0 0% 0% / 0.75);
+	}
+	&__title{
+		margin-block-end: 14px;
+	}
+	&__inner{
+		position: relative;
+		inline-size:100%;
+		padding: 93px 74px 95px;
+		&.city{			
+			padding: 50px;
+		}
+	}
+	&__form{
+		.form-group{
+			margin-block-end: 16px;
+		}
+		&-extra{
+			display: flex;
+			gap: 26px;
+			margin-block-end: 48px;
+			&>*{
+				color: var(--clr-text);
+				text-decoration-line: underline;
+				  text-underline-offset: 4px;
+				transition: color var(--tr), text-decoration-color var(--tr);
+				&:hover{
+					color: var(--clr-orange-100);
+					text-decoration-color: transparent;
+				}
+			}
+		}
+	}
+	&::-webkit-scrollbar {
+		width: 6px;
+	 }
+	 &::-webkit-scrollbar-track {
+		background-color: transparent;
+		border-radius: 100vw;
+	 }
+	 &::-webkit-scrollbar-thumb {
+		background-color: var(--clr-orange-50);
+		border-radius: 100vw;
+	 }
+}
+// ThePopupAddAuto --- добавление автомобиля
+.popup--my-auto{
+	--popup-w: 787px;
+	.popup__title{
+		margin-block-end: 21px;
+	}
+	.popup__form{
+		display: grid;
+	}
+	.form-groups{
+		display: flex;
+		flex-wrap: wrap;
+		gap: calc(var(--gutter) / 4) var(--gutter);
+		margin-block-end: calc(var(--gutter) / 4);
+	}
+	.form-group{
+		flex-basis: calc(50% - var(--gutter) / 2);
+	}
+	textarea{
+		margin-block-end: 24px;
+	}
+	.popup__form-btn{
+		justify-self: center;
+	}
+}
+// ThePopupCity -- поиск по городам
+.city{
+	&__search{
+		position: relative;
+		display: grid;
+		margin-block-end: 48px;
+		padding: 5px 8px 5px 44px;
+		background-color: var(--clr-gray-100);
+		border-radius: 8px;
+		&>i{
+			position: absolute;
+			inset-inline-start: 10px;
+			inset-block-start: 50%;
+			transform: translateY(-50%);
+			font-size: 21px;
+		}
+		input{
+			inline-size: 100%;
+			block-size: 32px;
+			padding-inline-end: 48px;
+			background-color: transparent;
+			border: none;
+			&:focus-visible{
+				outline: none;
+			}
+			&:focus-visible::placeholder{
+				color: transparent;
+			}
+		}
+		button{
+			position: absolute;
+			inset-inline-end: 8px;
+			inset-block-start: 50%;
+			transform: translateY(-50%);
+			display: grid;
+			place-items: center;
+			inline-size: 32px;
+			block-size: 32px;
+			color: var(--clr-white);
+			background-color: var(--clr-black);
+			border-radius: 4px;
+			font-size: 21px;
+			transition: background-color var(--tr);
+			&:hover{
+				background-color: var(--clr-orange-100);
+			}
+		}
+	}
+	&__popular{
+		margin-block-end: 56px;
+		&-title{
+			margin-block-end: 16px;
+			font-weight: var(--fw-b);
+		}
+		&-items{
+			display: flex;
+			flex-wrap: wrap;
+			gap: 16px 48px;
+			max-inline-size: 582px;
+			span{
+				max-inline-size: 162px;
+				inline-size: 100%;
+			}
+		}
+	}
+	&__pick{
+		margin-block-end: 48px;
+		&-title{
+			margin-block-end: 18px;
+			font-weight: var(--fw-b);
+		}
+		&-alphabet{
+			display: flex;
+			flex-wrap: wrap;
+			gap: 16px 0;			
+			span{
+				display: grid;
+				place-items: center;
+				inline-size: 32px;
+				block-size: 24px;
+				text-transform: uppercase;
+				border-radius: 4px;
+				cursor: pointer;
+				transition: color var(--tr), background-color var(--tr);
+				&:hover,&.active{
+					color: var(--clr-white);
+					background-color: var(--clr-orange-100);
+				}
+			}
+		}
+	}
+	&__btm{
+		display: grid;
+		grid-template-columns: .5fr 1.5fr 3fr;
+		gap: 0 px;
+		&-letter{
+			line-height: .9;
+		}
+		&-towns{
+			align-self: start;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 16px 32px;
+			&>span{
+				display: flex;
+				align-items: center;
+				gap: 0 6px;
+				inline-size: 112px;
+				block-size: 24px;
+				padding-inline: 12px;
+				border-radius: 4px;
+				cursor: pointer;
+				transition: color var(--tr), background-color var(--tr);
+				&:hover,&.active{
+					color: var(--clr-white);
+					background-color: var(--clr-orange-100);
+				}
+				.franchise{
+					min-inline-size: 8px;
+					block-size: 8px;
+					background-color: var(--clr-orange-100);
+					border-radius: 2px;					
+				}
+			}
+		}
+		&-shops{
+			display: grid;
+			gap: 24px;
+			padding: 32px 40px;
+			border: 1px solid var(--clr-gray);
+			border-radius: 24px;
+			.shops{
+				&__title{
+					margin-block-end: 24px;
+					font-weight: var(--fw-b);
+				}
+				&__list{
+					display: grid;
+					gap: 16px 0;
+					label{
+						display: flex;
+						align-items: center;
+						gap: 0 16px;
+						cursor: pointer;
+					}
+				}
+			}
+			.no-shops{
+				&__text{
+					margin-block-end: 32px;
+					&>*+*{
+						margin-block-start: 16px;
+					}
+				}
+				&__contacts{
+					display: flex;
+					flex-wrap: wrap;
+					gap: 16px 76px;
+					a{
+						display: flex;
+						align-items: center;
+						gap: 8px;
+						color: var(--clr-black);
+						font-weight: var(--fw-b);
+						transition: color var(--tr);
+						i{
+							font-size: 21px;
+						}
+						&:hover{
+							color: var(--clr-orange-100);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+// ThePopupComparison -- попап СРАВНЕНИЕ
+.pop-compar{
+	--bor-r: 8px;
+	--close: 48px;
+	--columns: 1fr .75fr .8fr 1.2fr 1fr .8fr .7fr var(--close);
+	--pad-i-s: 31px;
+	--pad-bl: 22px;
+	--row-gap: 16px;
+	inline-size: 100%;
+	padding: unset;
+	
+	&__top{
+		display: grid;
+		grid-template-columns: 1fr var(--close);
+		gap: 0 var(--gutter);	
+		margin-block-end: 36px;	
+		&-content{
+			display: flex;
+			align-items: center;
+			gap: 0 8px;
+			padding-inline-start: var(--pad-i-s);
+			background-color: var(--clr-white);
+			border-radius: var(--bor-r);
+			span{
+				margin-inline-start: 10px;
+			}
+		}
+		&-close{
+			display: grid;
+			place-items: center;
+			aspect-ratio: 1;
+			background-color: var(--clr-white);
+			border-radius: var(--bor-r);			
+			transition: background-color var(--tr);
+			i{
+				transform: translateX(1px);
+			}
+			&:hover{
+				background-color: var(--clr-orange-100);
+			}
+		}
+	}
+	&__head{
+		display: grid;
+		grid-template-columns: var(--columns);	
+		margin-block-end: var(--row-gap);	
+		padding-inline-start: var(--pad-i-s);
+		padding-block: var(--pad-bl);
+		background-color: var(--clr-gray-100);
+		border-radius: var(--bor-r);
+	}
+	&__rows{
+		display: grid;
+		gap: var(--row-gap) 0;
+	}
+	&__row{
+		display: grid;
+		grid-template-columns: var(--columns);	
+		align-items: center;	
+		padding-inline-start: var(--pad-i-s);
+		padding-block: var(--pad-bl);
+		background-color: var(--clr-white);
+		border-radius: var(--bor-r);		
+		&-item-extra{
+			display: flex;
+			align-items: center;
+			gap: 0 16px;
+			span{
+				display: flex;
+				align-items: center;
+			}
+		}
+		.btn-basket{
+			display: grid;
+			place-items: center;
+			inline-size: 80px;
+			color: var(--clr-white);
+			background-color: var(--clr-black);
+			block-size: 24px;
+			border-radius: 4px;
+			transition: background-color var(--tr);
+			i{
+				font-size: 18px;
+			}
+			&:hover{
+				background-color: var(--clr-orange-100);
+			}
+		}
+		.btn-close{
+			display: grid;
+			place-items: center;
+			transition: color var(--tr);
+			&:hover{
+				color: var(--clr-orange-100);
+			}
+		}
+	}
+}
+// кнопка закрытия любого попапа
+.close{
+	position: absolute;
+	inset-inline-end: 26px;
+	inset-block-start: 26px;
+	display: grid;
+	place-items: center;
+	inline-size: 48px;
+	block-size: 48px;
+	border: 1px solid var(--clr-black);
+	border-radius: 8px;
+}
+
 ///////////////////////////////////////
 ///////// ЛИЧНЫЙ КАБИНЕТ //////////////
 ///////////////////////////////////////
 
-// -------- клиент --------------------
+// -------- TheClient --------------------
 .client{	
 	display: grid;
 	grid-template-rows: min-content;
@@ -2129,7 +2366,7 @@ textarea{
 		}
 	}
 }
-// -------- меню пользователя ---------
+// -------- TheUserMenu ---------
 .user-menu{
 	position: absolute;
 	inset-inline-end: 0;
@@ -2158,7 +2395,7 @@ textarea{
 		}
 	}
 }
-// -------- баланс ---------------------
+// -------- TheBalance ---------------------
 .balance{
 	display: grid;
 	gap: 24px 0;
@@ -2204,7 +2441,7 @@ textarea{
 		}
 	}
 }
-// -------- история заказов -----------
+// -------- TheHistory -----------
 .history{
 	&__row1{
 		display: flex;		
@@ -2358,7 +2595,7 @@ textarea{
 		}
 	}
 }
-// -------- мои автомобили ------------
+// -------- TheMyAuto ------------
 .my-auto{
 	&__title{
 		margin-block-end: 24px;
@@ -2427,7 +2664,7 @@ textarea{
 		gap: var(--gutter);		
 	}
 }
-// -------- накладные -----------------
+// -------- TheNaklad -----------------
 .naklad{
 	&__table{
 		--columns: 1fr 1fr 1fr 3fr;
@@ -2462,7 +2699,7 @@ textarea{
 		}
 	}
 }
-// -------- vin запросы ---------------
+// -------- TheVinZapros ---------------
 .vin-zapros{
 	&__table{
 		--columns: .7fr 1fr 1fr 1fr 1fr 24px;
@@ -2509,7 +2746,7 @@ textarea{
 		}
 	}
 }
-// -------- счета ---------------------
+// -------- TheAccounts ---------------------
 .accounts{
 	&__table{
 		--columns: 1fr 1fr 1fr 2fr 24px;
@@ -2566,7 +2803,7 @@ textarea{
 		}
 	}
 }
-// -------- личный менеджер -----------
+// -------- TheManager -----------
 .manager{
 	display: flex;
 	flex-wrap: wrap;
@@ -2607,12 +2844,12 @@ textarea{
 ///////// СТРАНИЦЫ / PAGES ////////////
 ///////////////////////////////////////
 
-// -------- ГЛАВНАЯ --------------------
+// -------- index - ГЛАВНАЯ --------------------
 .news-block-main{
 	margin-block-end: 190px;
 }
 
-// -------- поставщикам ---------------
+// -------- suppliers - поставщикам ---------------
 .columns-2--suppliers{
 	margin-block-end: 90px;	
 }
@@ -2675,7 +2912,7 @@ textarea{
 	}
 }
 
-// -------- оплата --------------------
+// -------- oplata - оплата --------------------
 .oplata{		
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -2710,7 +2947,7 @@ textarea{
 	}
 }
 
-// -------- доставка ------------------
+// -------- delivery - доставка ------------------
 .delivery{		
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -2723,7 +2960,7 @@ textarea{
 	}	
 }
 
-// -------- интернет-магазин ----------
+// -------- shop - интернет-магазин ----------
 .columns-2--shop{
 	margin-block-end: 135px;
 }
@@ -2748,7 +2985,7 @@ textarea{
 	}
 }
 
-// -------- новости --------------------
+// -------- news - новости --------------------
 .news{
 	display: grid;
 	gap: 32px 0;
@@ -2762,7 +2999,7 @@ textarea{
 	}
 }
 
-// -------- новость --------------------
+// -------- news-single - новость --------------------
 .news-single{
 	display: grid;
 	grid-template-columns: repeat(12,1fr);
@@ -2815,7 +3052,7 @@ textarea{
 	}
 }
 
-// -------- регистрация ----------------
+// -------- registration - регистрация ----------------
 .registration-page{
 	.columns-2__title{
 		grid-column: 1/span 3;
@@ -2927,7 +3164,7 @@ textarea{
 	}	
 }	
 
-// -------- поиск по артикулу ----------
+// -------- search-artikul - поиск по артикулу ----------
 .search-artikul{
 	.columns-2__title{
 		grid-column: 1 / span 2;
@@ -2971,7 +3208,7 @@ textarea{
 	}
 }
 
-// -------- поиск по VIN и брендам -----
+// -------- search-vin-brands - поиск по VIN и брендам -----
 .search-vin-brands{
 	display: grid;
 	gap: 24px 0;
@@ -3043,7 +3280,7 @@ textarea{
 	}
 }
 
-// -------- кабинет --------------------
+// -------- cabinet - кабинет --------------------
 .cabinet-page-title{
 	margin-block-end: 68px;
 }
@@ -3092,7 +3329,7 @@ textarea{
 		grid-column: 9 / -1;	
 	}
 }
-// -------- каталог запчастей ----------
+// -------- catalog - каталог запчастей ----------
 .catalog{
 	display: grid;
 	grid-template-columns: 250px 1fr;
@@ -3239,7 +3476,7 @@ textarea{
 .max-i-s-unset{
 	max-inline-size: unset;
 }
-// MARGINS
+// MARGINS ------------
 .mbe-16{
 	margin-block-end: 16px;
 }
@@ -3249,11 +3486,15 @@ textarea{
 .mbe-68{
 	margin-block-end: 68px;
 }
-// FONT WEIGHT
+// FONT WEIGHT ------------
 .fw-b{
 	font-weight: var(--fw-b);
 }
-// MISC
+// TEXT
+.ttu{
+	text-transform: uppercase;
+}
+// MISC --------------
 .ruble{
 	font-family: Roboto, sans-serif;
 	font-size: clamp(16px, 0.0769rem + 1.9231vi, 32px);	line-height: 1.1;

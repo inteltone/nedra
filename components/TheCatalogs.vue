@@ -12,10 +12,10 @@ const catalogs = ref(CATALOGS)
 </script>
 <template>
 	<div class="catalogs">
-			<NuxtLink to="/" class="catalogs__item catalog" v-for="item,index in catalogs" :key="item.name">
-				<div class="catalog__num">0{{ index + 1 }}</div>
-				<div class="catalog__title h2">{{ item.name }}</div>
-				<img class="catalog__img" :src="`/images/catalogs/${item.img}.png`" :alt="item.name">
+			<NuxtLink to="/" class="catalogs__item catal" v-for="item,index in catalogs" :key="item.name">
+				<div class="catal__num">0{{ index + 1 }}</div>
+				<div class="catal__title h2">{{ item.name }}</div>
+				<img class="catal__img" :src="`/images/catalogs/${item.img}.png`" :alt="item.name">
 			</NuxtLink>			
 		</div>
 </template>

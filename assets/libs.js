@@ -6,9 +6,9 @@ export const CABINET_MENU_ITEMS = [
 	{name: 'VIN запросы',icon: 'computer'},
 	{name: 'Счета',icon: 'credit-score'},
 	{name: 'Накладные',icon: 'description'},
-	{name: 'Отправки',icon: 'package'},
+	// {name: 'Отправки',icon: 'package'},
 	{name: 'Сообщения',icon: 'mail'},
-	{name: 'Друзья',icon: 'group'},
-	{name: 'Пакетная проценка',icon: 'sell'},
+	// {name: 'Друзья',icon: 'group'},
+	{name: 'Запрос актов сверки',icon: 'sell'},
 	{name: 'Выход',icon: 'logout'},
 ]
