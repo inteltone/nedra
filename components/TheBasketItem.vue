@@ -3,9 +3,7 @@ const isBasketItem = useBasketItem()
 const isTextarea = ref(false)
 const counter = ref(0)
 function decrement() {
-	if (counter.value > 0) {
-		counter.value--
-	}
+	if (counter.value > 0) counter.value--
 }
 </script>
 <template>
