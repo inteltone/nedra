@@ -1,10 +1,6 @@
 <script setup>
 const isBasketItem = useBasketItem()
 const isTextarea = ref(false)
-const counter = ref(0)
-function decrement() {
-	if (counter.value > 0) counter.value--
-}
 </script>
 <template>
 	<div class="basket-item" :class="{active: isBasketItem}">
@@ -22,11 +18,7 @@ function decrement() {
 		</div>
 		<div class="basket-item__form">
 			<BaseButton class="basket-item__form-btn" text="Оформить заказ" />
-			<div class="basket-item__form-inputs">
-				<button class="minus decrement" @click="decrement">-</button>
-				<input type="number" min="0" v-model="counter">
-				<button class="plus increment" @click="counter++">+</button>
-			</div>
+			<BaseCounter />
 		</div>
 		<div class="basket-item__comment">
 			<div 

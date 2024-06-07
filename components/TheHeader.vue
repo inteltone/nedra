@@ -3,6 +3,7 @@ const isPopupAuth = usePopupAuth()
 const isPopupCity = usePopupCity()
 const isLoggedIn = useLoggedIn()
 const isUserMenu = useUserMenu()
+const isBasketCounter = useBasketCounter()
 const showPopupAuth = () => {	isPopupAuth.value = true }
 let show_search_input = ref(false)
 </script>
@@ -91,13 +92,14 @@ let show_search_input = ref(false)
 				</button>				
 			</div>
 			<NuxtLink to="/" class="header__btm-basket">
-				<div class="counter-wrap">
+				<div class="counter-wrap" @mouseenter="isBasketCounter = true">
 					<i class="icon-mall"></i>
-					<span class="counter">12</span>
+					<span>12</span>
 				</div>
 				<span>Корзина</span>				
 			</NuxtLink>
 			<TheBasketItem />
+			<TheBasketCounter />
 		</div>		
 	</header>	
 </template>

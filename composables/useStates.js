@@ -34,3 +34,6 @@ export const useManagerInfo = () => {
 export const useBasketItem = () => {
 	return useState('isBasketItem', () => false )
 }
+export const useBasketCounter = () => {
+	return useState('isBasketCounter', () => false )
+}

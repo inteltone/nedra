@@ -15,6 +15,7 @@
 				<NuxtLink to="/cabinet">Личный кабинет</NuxtLink>
 				<NuxtLink to="/catalog">Каталог категорий</NuxtLink>
 				<NuxtLink to="/card-product">Картачка продукта</NuxtLink>
+				<NuxtLink to="/basket">Корзина</NuxtLink>
 			</div>			
 		</div>		
 	</NuxtLayout>

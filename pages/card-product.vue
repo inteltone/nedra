@@ -1,5 +1,5 @@
 <script setup>
-// показ коризины с выбранным продуктом по хэдером
+// показ корзины с выбранным продуктом (под хэдером) при клике на кнопке с корзиной
 const isBasketItem = useBasketItem()
 function showBasketItem() {
 	isBasketItem.value = true
@@ -8,7 +8,9 @@ function showBasketItem() {
 	},10000)
 }
 let isPopupComparison = usePopupComparison()
-// таблицы в нижней части страницы
+///////////////////////////////////////////////////////////////////
+// ТАБЛИЦЫ В НИЖНЕЙ ЧАСТИ СТРАНИЦЫ /////////////////////////////////
+///////////////////////////////////////////////////////////////////
 // названия столбцов для таблиц
 const tableHeadItems = ref(['Производитель', 'Артикул', 'Наличие, шт', 'Срок доставки, дней', 'Статистика', 'Цена, ₽'])
 // сортировка столбцов
@@ -27,7 +29,7 @@ function iconSortClicked(index) {
 	iconSortIndex.value = index
 	iconRotate.value = undefined
 }
-// таблица ИСКОМЫЙ НОМЕР
+// таблица ИСКОМЫЙ НОМЕР --------------------------------
 const rowSearchedIndex = ref([])
 // выбор ряда при клике на нем
 function rowSearchedClicked(index) {
@@ -41,7 +43,7 @@ const tableSearchedItems = ref([
 	['DOLZ', 'C110', '115', '5-7', ['КВП 2', '3'], '3100'],
 	['DOLZ', 'C110', '35', '2-4', ['КВП 2', '2'], '2340'],
 ])
-// таблица ЗАМЕНЫ ТОГО ЖЕ ПРОИЗВОДИТЕЛЯ
+// таблица ЗАМЕНЫ ТОГО ЖЕ ПРОИЗВОДИТЕЛЯ --------------------------------
 const rowSwappedIndex = ref([])
 // выбор ряда при клике на нем
 function rowSwappedClicked(index) {
@@ -55,7 +57,7 @@ const tableSwappedItems = ref([
 	['DOLZ', 'C112', '15', '1-3', ['КВП 2', '1'], '3220'],
 	['DOLZ', 'C113', '6', '3-7', ['КВП 2', '4'], '2460'],
 ])
-// таблица АНАЛОГИ
+// таблица АНАЛОГИ --------------------------------
 const rowAnalogsIndex = ref([])
 // выбор ряда при клике на нем
 function rowAnalogsClicked(index) {
