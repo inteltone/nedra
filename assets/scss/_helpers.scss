@@ -49,7 +49,6 @@
 		cursor: pointer;
 	}
 }
-
 textarea{
 	block-size: 146px;
 	padding: 24px;
@@ -73,7 +72,6 @@ textarea{
 	border: 1px solid var(--clr-gray);
 	border-radius: 8px;
 }
-
 .checkbox{
 	position: relative;
 	min-inline-size: 24px;
@@ -3252,32 +3250,32 @@ textarea{
 		max-inline-size: unset;
 		margin-block-end: 46px;
 	}
-	&__form{
-		display: flex;
-		align-items: center;
-		gap: 0 26px;
-		block-size: 81px;
-		padding-inline: 26px;
-		background-color: var(--clr-gray-100);
-		border-radius: 8px;		
-		input{
-			flex-grow: 1;
-			max-inline-size: 505px;
-			block-size: 57px;
-			margin-inline-start: auto;
-			padding-inline: 24px;
-			border: none;
-			border-radius: 8px;
-			&:focus-visible{
-				outline: none;
-			}
-			&::placeholder{
-				color: var(--clr-gray);
-				line-height: 1;
-			}
-			&:focus-visible::placeholder{
-				color: transparent;
-			}
+}
+.search-vin-form{
+	display: flex;
+	align-items: center;
+	gap: 0 26px;
+	block-size: 81px;
+	padding-inline: 26px;
+	background-color: var(--clr-gray-100);
+	border-radius: 8px;		
+	input{
+		flex-grow: 1;
+		max-inline-size: 505px;
+		block-size: 57px;
+		margin-inline-start: auto;
+		padding-inline: 24px;
+		border: none;
+		border-radius: 8px;
+		&:focus-visible{
+			outline: none;
+		}
+		&::placeholder{
+			color: var(--clr-gray);
+			line-height: 1;
+		}
+		&:focus-visible::placeholder{
+			color: transparent;
 		}
 	}
 }
@@ -3313,6 +3311,32 @@ textarea{
 			block-size: 39px;
 			text-align: center;
 		}
+	}
+}
+
+// -------- search-vin-step1 - страница ПОИСТК ПО VIN шаг 1 -----
+.search-vin-table{
+	--columns: 1fr 1fr 1.2fr .8fr 1fr 1.2fr 1.1fr .8fr .8fr;
+	--pad-i: 50px;
+	--pad-bl: 24px;
+	&__head, &__row{
+		display: grid;
+		grid-template-columns: var(--columns);
+		padding-inline: var(--pad-i);
+	}
+	&__head{		
+		margin-block-end: 16px;			
+		color: var(--clr-gray);	
+	}
+	&__row{			
+		padding-block: var(--pad-bl);
+		color: var(--clr-black);
+		background-color: var(--clr-gray-100);	
+		border-radius: 8px;
+		transition: background-color var(--tr);	
+		&:hover{
+			background-color: var(--clr-orange-25);	
+		}	
 	}
 }
 
@@ -3904,6 +3928,10 @@ textarea{
 // FONT WEIGHT ------------
 .fw-b{
 	font-weight: var(--fw-b);
+}
+// COLORS
+.bg-orange{
+	background-color: var(--clr-orange-100);
 }
 // TEXT
 .ttu{

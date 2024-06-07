@@ -6,21 +6,10 @@ const brands = reactive(BRANDS)
 </script>
 <template>
 	<NuxtLayout>
-		<ul class="breadcrums">
-			<li class="breadcrums__item">
-				<NuxtLink to="/" class="breadcrums__link">Главная</NuxtLink>
-			</li>
-			<li class="breadcrums__item">
-				<span class="breadcrums__idle">Оригинальный каталог</span>
-			</li>
-		</ul>		
+		<TheBreadcrum />	
 		<ThePageTitle class="search-vin-brands__title" title="Оригинальный каталог" />
 		<div class="search-vin-brands">
-			<form class="search-vin-brands__form" >
-				<span class="search-vin-brands__form-title">Поиск по VIN номеру</span>
-				<input type="search" placeholder="Введите VIN номер, например, WAUZZZ00121415125">
-				<BaseButton text="Найти" />
-			</form>
+			<TheSearchVinForm />
 			<div class="brands-output auto-grid">
 				<NuxtLink to="/" class="brands-output__item" v-for="brand in brands" :key="brand.name">
 					<div class="brands-output__item-img">
