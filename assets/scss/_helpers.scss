@@ -3334,10 +3334,10 @@ textarea{
 		background-color: var(--clr-gray-100);	
 		border-radius: 8px;
 		transition: background-color var(--tr);	
-		&:hover{
-			background-color: var(--clr-orange-25);	
-		}	
 	}
+	& a:hover{
+		background-color: var(--clr-orange-25);	
+	}	
 }
 
 // -------- cabinet - страница КАБИНЕТ -------------
