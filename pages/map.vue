@@ -11,7 +11,9 @@
 				<NuxtLink to="/news-single">Страница новости</NuxtLink>
 				<NuxtLink to="/registration">Регистрация</NuxtLink>
 				<NuxtLink to="/search-artikul">Поиск по артикулу</NuxtLink>
-				<NuxtLink to="/search-vin-brands">Поиск по VIN номеру</NuxtLink>
+				<NuxtLink to="/search-vin-brands">Поиск по VIN</NuxtLink>
+				<NuxtLink to="/search-vin-step1">Поиск по VIN шаг 1</NuxtLink>
+				<NuxtLink to="/search-vin-step2">Поиск по VIN шаг 2</NuxtLink>
 				<NuxtLink to="/cabinet">Личный кабинет</NuxtLink>
 				<NuxtLink to="/catalog">Каталог категорий</NuxtLink>
 				<NuxtLink to="/card-product">Картачка продукта</NuxtLink>

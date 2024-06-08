@@ -166,13 +166,13 @@ onMounted(()=>{
 						<div class="card-cat__title">{{category.name}}</div>
 					</NuxtLink>					
 				</div>
-				<div class="products-picked" v-show="showContent === 1">
-					<div class="products-picked__item">
+				<div class="products-picked auto-grid" v-show="showContent === 1">
+					<NuxtLink to="/" class="products-picked__item" v-for="item in 5">
 						<div class="products-picked__item-img">
 							<img src="/images/classifier/thumb.png" alt="">
 						</div>
 						<p class="products-picked__item-text">Фильтр масляный</p>
-					</div>
+					</NuxtLink>
 				</div>
 				<div class="product-picked" v-show="showContent === 2">
 					<div class="product-picked__img">
@@ -346,19 +346,28 @@ onMounted(()=>{
 	}
 }
 .products-picked{
+	--min-w: 300px;
 	&__item{
 		display: grid;
-		place-items: center;
-		max-inline-size: 386px;
+		place-items: center;		
 		padding: 10px 0 19px;
+		color: var(--clr-black);
 		border: 1px solid var(--clr-gray);
 		border-radius: 8px;
+		transition: color var(--tr), border-color var(--tr);
 		&-img{
 			overflow: hidden;
 			max-block-size: 274px;
 			margin-block-end: 24px;
+			img{
+				aspect-ratio: 1;
+				inline-size: 100%;
+			}
 		}
-		&-text{}
+		&:hover{
+			color: var(--clr-orange-100);
+			border-color: var(--clr-orange-100);
+		}
 	}
 }
 .product-picked{
@@ -384,6 +393,7 @@ onMounted(()=>{
 		color: var(--clr-white);
 		background-color: var(--clr-orange-100);
 		border-radius: 4px;
+		cursor: pointer;
 	}
 	&__desc{
 		position: absolute;
@@ -439,8 +449,12 @@ onMounted(()=>{
 			font-size: 10px;
 			text-transform: uppercase;
 			border-radius: 0 0 8px 8px;
+			transition: background-color var(--tr);
 			i{
 				font-size: 16px;
+			}
+			&:hover{
+				background-color: var(--clr-orange-100);
 			}
 		}
 	}
