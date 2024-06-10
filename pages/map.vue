@@ -18,6 +18,7 @@
 				<NuxtLink to="/catalog">Каталог категорий</NuxtLink>
 				<NuxtLink to="/card-product">Картачка продукта</NuxtLink>
 				<NuxtLink to="/basket">Корзина</NuxtLink>
+				<NuxtLink to="/zakaz">Оформление заказа</NuxtLink>
 			</div>			
 		</div>		
 	</NuxtLayout>
