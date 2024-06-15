@@ -4432,6 +4432,177 @@ textarea{
 	}
 }
 
+// -------- catalog-single - страница каталог товаров (лампы) -------------------------------------
+.cat-single{
+	display: grid;
+	&__imgs{
+		position: relative;
+		max-inline-size: 1163px;
+		margin-inline: auto;
+		margin-block-end: 16px;
+		.auto-markers{
+			position: absolute;
+			inset: 0;
+			&__item{
+				position: absolute;
+				display: grid;
+				place-items: center;
+				inline-size: 40px;
+				block-size: 40px;
+				font-size: 10px;
+				cursor: pointer;
+				span{
+					position: relative;
+					z-index: 1;
+				}
+				&::before{
+					content: '';
+					position: absolute;
+					z-index: 0;
+					inline-size: 20px;
+					block-size: 20px;
+					background-color: var(--clr-white);
+					border-radius: 100vw;
+					transition: background-color var(--tr);
+				}
+				&::after{
+					content: '';
+					position: absolute;
+					z-index: 0;
+					inline-size: 30px;
+					block-size: 30px;
+					border: 2px solid var(--clr-white);					
+					border-radius: 100vw;
+					transition: border-color var(--tr);
+				}
+				&:hover::before{
+					background-color: var(--clr-orange-100);
+				}
+				&:hover::after{
+					border-color: var(--clr-orange-100);
+				}
+				&.active::before{					
+					background-color: var(--clr-orange-100);
+				}
+				&.active::after{
+					inline-size: 40px;
+					block-size: 40px;
+					border-color: var(--clr-orange-100);
+				}
+			}
+			&__item:nth-child(1){
+				inset-inline-start: 21%;
+				inset-block-start: 49%;
+			}
+			&__item.back1{
+				inset-inline-start: 73%;
+				inset-block-start: 36%;
+			}
+			&__item.within1{
+				inset-inline-start: 65%;
+				inset-block-start: 75%;
+			}
+			&__item:nth-child(2){
+				inset-inline-start: 24%;
+				inset-block-start: 48%;
+			}
+			&__item.back2{
+				inset-inline-start: 77%;
+				inset-block-start: 37%;
+			}
+			&__item.within2{
+				inset-inline-start: 45%;
+				inset-block-start: 6%;
+			}
+			&__item:nth-child(3){
+				inset-inline-start: 23.15%;
+				inset-block-start: 68%;
+			}
+			&__item:nth-child(4){
+				inset-inline-start: 27%;
+				inset-block-start: 47%;
+			}			
+			&__item:nth-child(5){
+				inset-inline-start: 46%;
+				inset-block-start: 51%;
+			}
+		}
+	}
+	&__img{
+		display: none;
+		overflow: hidden;
+		aspect-ratio: 2.6017;
+		inline-size: 100%;
+		&.active{
+			display: block;
+		}
+		img{
+			inline-size: 100%;
+			block-size: 100%;
+			object-fit: cover;
+			object-position: center;			
+		}
+	}
+	&__btns{
+		display: flex;
+		justify-content: center;
+		gap: 10px;
+		margin-block-end: 79px;
+	}
+	&__products{
+		&-section{
+			padding-block: 24px;
+			border: 1px solid transparent;
+			border-radius: 8px;
+			&.active{
+				margin-inline: calc(-1 * var(--minimum-content-padding));
+				padding-inline: var(--minimum-content-padding);
+				border-color: var(--clr-orange-100);
+			}
+		}
+		.auto-grid{
+			--min-w: 225px;
+		}
+		&-title{
+			--delta: 35px;
+			display: flex;
+			gap: 0 16px;
+			margin-block-start: calc(-1 * (var(--header__btm-h) + var(--delta)));
+			padding-block-start: calc(var(--header__btm-h) + var(--delta));
+			margin-block-end: 24px;
+			span{
+				color: var(--clr-gray);
+				font-size: 10px;
+			}
+		}
+		&-item{
+			display: grid;
+			place-items: center;
+			padding: 7px 0 8px;
+			color: var(--clr-black);
+			border: 1px solid var(--clr-gray);
+			border-radius: 8px;
+			transition: color var(--tr), border-color var(--tr);
+			&-img{
+				overflow: hidden;
+				align-self: 1;
+				inline-size: 122px;
+				margin-block-end: 16px;
+				img{
+					inline-size: 100%;
+					block-size: 100%;
+					object-fit: cover;
+					object-position: center;
+				}
+			}			
+			&:hover{
+				color: var(--clr-orange-100);
+				border-color: var(--clr-orange-100);
+			}
+		}
+	}
+}
+
 // -------- 404 -------------------------------------
 ._404{
 	display: grid;

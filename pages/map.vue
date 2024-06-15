@@ -16,7 +16,8 @@
 				<NuxtLink to="/search-vin-step2">Поиск по VIN шаг 2</NuxtLink>
 				<NuxtLink to="/cabinet">Личный кабинет</NuxtLink>
 				<NuxtLink to="/catalog">Каталог категорий</NuxtLink>
-				<NuxtLink to="/card-product">Картачка продукта</NuxtLink>
+				<NuxtLink to="/catalog-single">Каталог ламп</NuxtLink>
+				<NuxtLink to="/card-product">Карточка продукта</NuxtLink>
 				<NuxtLink to="/basket">Корзина</NuxtLink>
 				<NuxtLink to="/zakaz">Оформление заказа</NuxtLink>
 				<NuxtLink to="/404">404</NuxtLink>
