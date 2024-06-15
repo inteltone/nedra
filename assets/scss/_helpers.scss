@@ -4432,6 +4432,33 @@ textarea{
 	}
 }
 
+// -------- 404 -------------------------------------
+._404{
+	display: grid;
+	grid-template-columns: repeat(10,1fr);
+	gap: var(--gutter);
+	max-inline-size: 1330px;
+	margin-inline: auto;
+	padding-block-start: 150px;
+	&__title-block{
+		position: relative;
+		grid-column: 1 / span 3;
+		grid-row: 1 / span 1;	
+		max-inline-size: 360px;	
+		inline-size: 100%;	
+		margin-inline-start: 50px;
+	}
+	&__title{		
+		margin-block-end: 16px;
+		padding-block-end: 4px;
+		border-block-end: 1px solid var(--clr-black);
+	}
+	&__img{
+		grid-column: 1 / -1;
+		grid-row: 1 / span 1;
+	}
+}
+
 ///////////////////////////////////////
 ///////// РАЗНОЕ / MISC ///////////////
 ///////////////////////////////////////
