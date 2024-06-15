@@ -6,6 +6,7 @@ const isUserMenu = useUserMenu()
 const isBasketCounter = useBasketCounter()
 const showPopupAuth = () => {	isPopupAuth.value = true }
 let show_search_input = ref(false)
+
 </script>
 <template>
 	<header class="header full container">
@@ -57,10 +58,8 @@ let show_search_input = ref(false)
 			<NuxtLink to="/" class="header__btm-mob-logo">
 				<img src="/assets/images/svg/misc/logo-mobile.svg" alt="Логотип Nedra Parts">
 			</NuxtLink>
-			<button class="header__btm-catalog">
-				<i class="icon-menu-1"></i>
-				Каталог
-			</button>			
+			<TheCatalogDropButton />
+			<TheCatalogDrop />			
 			<form class="header__btm-search"
 				:class="{show: show_search_input === true}"
 			>
@@ -99,7 +98,7 @@ let show_search_input = ref(false)
 				<span>Корзина</span>				
 			</NuxtLink>
 			<TheBasketItem />
-			<TheBasketCounter />
+			<TheBasketCounter />			
 		</div>		
 	</header>	
 </template>

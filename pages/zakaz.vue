@@ -11,6 +11,8 @@ const regFormTabIndex = ref(0)
 // ФОРМА РЕГИСТРАЦИИ ///////////////////////////////////////////
 let name = ref('') // поле имя
 let last_name = ref('') // поле фамилия
+let orgname = ref('') // поле имя
+let address = ref('') // поле фамилия
 let password = ref('') // поле пароль
 let confirm_password = ref('') // поле подтверждение пароля
 let tel = ref('') // поле телефон
@@ -112,6 +114,12 @@ function validation() {
 	}
 	if (last_name.value !== null) {		
 		if (last_name.value.length > 0) {counter.value += 1}
+	}
+	if (orgname.value !== null) {		
+		if (orgname.value.length > 0) {counter.value += 1}
+	}
+	if (address.value !== null) {		
+		if (address.value.length > 0) {counter.value += 1}
 	}
 	if (password.value.length > 5) {counter.value += 1}	
 	if (confirm_password.value.length > 5 && confirm_password.value === password.value) {
@@ -241,13 +249,13 @@ function optionClicked(index) {
 							<template v-else>
 								<BaseInputGroup 
 									for="orgname" type="text" title="Название" hint="Введите название организации. Потребуется при получении заказа"							
-									v-model="name"
+									v-model="orgname"
 									@input="validation"
 									:class="{validated: name.length > 0}"
 								/>						
 								<BaseInputGroup 
 									for="address" type="text" title="Адрес" hint="Введите адрес. Потребуется при получении заказа"							
-									v-model="last_name"
+									v-model="address"
 									@input="validation"
 									:class="{validated: last_name.length > 0}"
 								/>						

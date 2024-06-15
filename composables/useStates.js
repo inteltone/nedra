@@ -37,3 +37,6 @@ export const useBasketItem = () => {
 export const useBasketCounter = () => {
 	return useState('isBasketCounter', () => false )
 }
+export const useCatalogDrop = () => {
+	return useState('isCatalogDrop', () => false )
+}

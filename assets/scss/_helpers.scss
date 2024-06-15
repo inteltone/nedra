@@ -645,7 +645,11 @@ textarea{
 			display: flex;
 			align-items: center;
 			gap: 0 12px;
-			margin-inline-end: 148px;			
+			margin-inline-end: 148px;	
+			transition: color var(--tr);
+			&.active{
+				color: var(--clr-white);
+			}		
 		}
 		&-search{
 			display: flex;
@@ -1625,6 +1629,71 @@ textarea{
 		/* Firefox */
 		&[type=number] {
 		-moz-appearance: textfield;
+		}
+	}
+}
+
+// -------- TheCatalogDrop - выпадашка для перехода в каталоги в хэдере ------------------
+.cat-drop{
+	--delta: 4px;
+	position: absolute;
+	z-index: -1;
+	inset-inline-start: 0;
+	inset-block-start: calc(100% + var(--delta));
+	display: grid;
+	grid-template-columns: repeat(6,1fr);
+	gap: 14px;
+	inline-size: 100%;
+	padding: 16px;
+	background-color: var(--clr-white);
+	border-radius: 8px;
+	counter-reset: catdrop;
+	visibility: hidden;
+	opacity: 0;
+	transform: translateY(-20px);
+	transition: visibility var(--tr), opacity var(--tr), transform var(--tr);
+	&.active{
+		visibility: visible;
+		opacity: 1;
+		transform: translateY(0px);
+	}
+	&__item{
+		padding: 13px 12px 16px;
+		color: var(--clr-black);
+		border: 1px solid var(--clr-black);
+		border-radius: 8px;
+		transition: border-color var(--tr), background-color var(--tr);
+		&::before{
+			counter-increment: catdrop;
+  			content: '0'counter(catdrop);		
+			display: block;	
+			font-size: 10px;
+		}
+		&-title{
+			margin-block-end: 26px;
+			font-family: var(--ff-sec);
+		}
+		&-img{			
+			margin-block-end: 50px;
+			img{
+				inline-size: 100%;
+			}			
+		}
+		&::after{
+			content: '';
+			display: block;
+			inline-size: 21px;
+			block-size: 8px;
+			background-image: url("data:image/svg+xml,%3Csvg width='36' height='8' viewBox='0 0 36 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M32.1716 0.464562L35.3536 3.64654C35.5488 3.8418 35.5488 4.15839 35.3536 4.35365L32.1716 7.53563C31.9763 7.73089 31.6597 7.73089 31.4645 7.53563C31.2692 7.34037 31.2692 7.02378 31.4645 6.82852L33.7929 4.5001H0V3.5001H33.7929L31.4645 1.17167C31.2692 0.976407 31.2692 0.659824 31.4645 0.464562C31.6597 0.2693 31.9763 0.2693 32.1716 0.464562Z' fill='black'/%3E%3C/svg%3E");
+			background-position: center right;
+			transition: inline-size var(--tr);
+		}		
+		&:hover{
+			background-color: var(--clr-orange-50);
+			border-color: transparent;
+		}
+		&:hover::after{
+			inline-size: 36px;
 		}
 	}
 }
