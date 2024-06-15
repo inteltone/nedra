@@ -4453,6 +4453,9 @@ textarea{
 		padding-block-end: 4px;
 		border-block-end: 1px solid var(--clr-black);
 	}
+	&__title.in-dev{
+		border: unset;
+	}
 	&__img{
 		grid-column: 1 / -1;
 		grid-row: 1 / span 1;

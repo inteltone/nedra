@@ -19,6 +19,8 @@
 				<NuxtLink to="/card-product">Картачка продукта</NuxtLink>
 				<NuxtLink to="/basket">Корзина</NuxtLink>
 				<NuxtLink to="/zakaz">Оформление заказа</NuxtLink>
+				<NuxtLink to="/404">404</NuxtLink>
+				<NuxtLink to="/in-development">Страница в разработке</NuxtLink>
 			</div>			
 		</div>		
 	</NuxtLayout>
