@@ -3,7 +3,7 @@ const cities = reactive([
 	{name: 'Бийск', x: 73, y: 55, address: 'Проспект Михаила Нагибина, д. 155', isActive: false},
 	{name: 'Воронеж', x: 40, y: 70, address: 'Улица Ленина, д. 1а', isActive: false},
 ])
-const showCity = (city) => {
+function showCity(city){
 	if (city.isActive === true) {
 		city.isActive = false
 		return
@@ -11,7 +11,7 @@ const showCity = (city) => {
 	hideTooltips()
 	city.isActive = true
 }
-const hideTooltips = () => {
+function hideTooltips(){
 	cities.forEach(item => {
 		item.isActive = false
 	})
@@ -35,15 +35,26 @@ const selectCities = ref([
 		addresses: ['ул. Солнечная, д. 48', 'Московский проспект, д. 67', 'ул. Баррикадная, д. 35']
 	},	
 ])
+// работа вып. списка с городами
 const isCityOptions = ref(false)
 const selectCityIndex = ref(0)
+function optionCityActiveClicked() {
+	isCityOptions.value = !isCityOptions.value
+	isAddressOptions.value = false
+}
 function optionCityClicked(index) {
 	selectCityIndex.value = index
 	isCityOptions.value = false
 	isAddressOptions.value = false
+	selectAddressIndex.value = 0
 }
+// работа вып. списка с адресами в городах
 const isAddressOptions = ref(false)
 const selectAddressIndex = ref(0)
+function optionAddressActiveClicked() {
+	isAddressOptions.value = !isAddressOptions.value
+	isCityOptions.value = false
+}
 function optionAddressClicked(index) {
 	selectAddressIndex.value = index
 	isAddressOptions.value = false
@@ -81,7 +92,7 @@ function optionAddressClicked(index) {
 		<div class="map__btm">
 			<div class="map__select select">
 				<button class="option active"
-					@click="isCityOptions = !isCityOptions"
+					@click="optionCityActiveClicked"
 				>
 					<i class="icon-location"></i>
 					<span class="selected">{{selectCities[selectCityIndex].city}} [{{selectCities[selectCityIndex].num}}]</span>
@@ -99,7 +110,7 @@ function optionAddressClicked(index) {
 			</div>
 			<div class="map__select select">
 				<button class="option active"
-				@click="isAddressOptions = !isAddressOptions"
+				@click="optionAddressActiveClicked"
 				>
 					<i class="icon-near"></i>
 					<span class="selected">{{selectCities[selectCityIndex].addresses[selectAddressIndex]}}</span>
