@@ -2810,6 +2810,79 @@ textarea{
 		}
 	}
 }
+// -------- TheMessages -----------------
+.messages{
+	display: grid;
+	&__link{
+		display: flex;
+		align-items: center;
+		gap: 0 16px;
+		margin-block-end: 16px;
+		color: var(--clr-gray);
+		transition: color var(--tr);
+		&::before{
+			content: '';
+			display: block;
+			inline-size: 44px;
+			block-size: 8px;
+			background-image: url("data:image/svg+xml,%3Csvg width='44' height='8' viewBox='0 0 44 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.146447 4.3534C-0.0488155 4.15814 -0.0488155 3.84156 0.146447 3.6463L3.32843 0.464318C3.52369 0.269056 3.84027 0.269056 4.03553 0.464318C4.2308 0.65958 4.2308 0.976162 4.03553 1.17142L1.70711 3.49985H43.5V4.49985H1.70711L4.03553 6.82828C4.2308 7.02354 4.2308 7.34012 4.03553 7.53539C3.84027 7.73065 3.52369 7.73065 3.32843 7.53539L0.146447 4.3534Z' fill='%23A9A9A9'/%3E%3C/svg%3E%0A");
+			transition: background-image var(--tr);
+		}
+		&:hover{
+			color: var(--clr-orange-100);
+		}
+		&:hover::before{
+			background-image: url("data:image/svg+xml,%3Csvg width='44' height='8' viewBox='0 0 44 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.146447 4.3534C-0.0488155 4.15814 -0.0488155 3.84156 0.146447 3.6463L3.32843 0.464318C3.52369 0.269056 3.84027 0.269056 4.03553 0.464318C4.2308 0.65958 4.2308 0.976162 4.03553 1.17142L1.70711 3.49985H43.5V4.49985H1.70711L4.03553 6.82828C4.2308 7.02354 4.2308 7.34012 4.03553 7.53539C3.84027 7.73065 3.52369 7.73065 3.32843 7.53539L0.146447 4.3534Z' fill='%23FF5E00'/%3E%3C/svg%3E%0A");
+		}
+	}
+	&__title{
+		margin-block-end: 8px;
+	}
+	&__content{
+		display: grid;
+		gap: 36px;
+		margin-block-end: 8px;
+		padding: 16px 16px 48px;
+		border: 1px solid var(--clr-gray);
+		border-radius: 8px;
+		&-item{
+			justify-self: end;
+			max-inline-size: 529px;
+			&-msg{
+				margin-block-end: 8px;
+				padding: 25px 25px 26px;
+				background-color: var(--clr-gray-25);
+				border-radius: 8px;
+				&>*+*{
+					margin-block-start: 16px;
+				}
+			}
+			&-extra{
+				display: flex;
+				justify-content: end;
+				gap: 24px;
+				color: var(--clr-gray);
+				a{
+					color: var(--clr-gray);
+					transition: color var(--tr);
+					&:hover{
+						color: var(--clr-orange-100);
+					}
+				}
+			}
+			&.response{
+				justify-self: start;
+				.messages__content-item-msg{
+					background-color: unset;
+					border: 1px solid var(--clr-black);
+				}
+			}
+		}		
+	}
+	&__btn{
+		justify-self: end;
+	}	
+}
 // -------- TheVinZapros ---------------
 .vin-zapros{
 	&__table{
@@ -4594,7 +4667,10 @@ textarea{
 					object-fit: cover;
 					object-position: center;
 				}
-			}			
+			}
+			&-title{
+				text-transform: uppercase;
+			}
 			&:hover{
 				color: var(--clr-orange-100);
 				border-color: var(--clr-orange-100);

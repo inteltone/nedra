@@ -15,6 +15,7 @@ definePageMeta({
 			<TheVinZapros v-else-if="userMenuIndex === 4" />				
 			<TheAccounts v-else-if="userMenuIndex === 5" />				
 			<TheNaklad v-else-if="userMenuIndex === 6" />				
+			<TheMessages v-else-if="userMenuIndex === 7" />				
 			<TheManager v-if="isManagerInfo" />				
 		</div>		
 	</NuxtLayout>
