@@ -4527,6 +4527,7 @@ textarea{
 				span{
 					position: relative;
 					z-index: 1;
+					color: var(--clr-black);
 				}
 				&::before{
 					content: '';
