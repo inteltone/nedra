@@ -50,7 +50,7 @@
 	}
 }
 textarea{
-	block-size: 146px;
+	block-size: 146px;	
 	padding: 24px;
 	border: none;
 	border-radius: 8px;
@@ -64,6 +64,17 @@ textarea{
 	}
 	&:focus-visible::placeholder{
 		color: transparent;
+	}
+	&::-webkit-scrollbar {
+		width: 6px;
+	}
+	&::-webkit-scrollbar-track {
+		background-color: transparent;
+		border-radius: 100vw;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: var(--clr-orange-100);
+		border-radius: 100vw;
 	}
 }
 .popup textarea{
@@ -136,8 +147,9 @@ textarea{
 	--offset-x: -100%;
 	overflow: hidden;
 	position: relative;
-	display: grid;
+	display: flex;
 	place-items: center;
+	gap: 0 4px;
 	block-size: 57px;
 	padding-inline: 50px;
 	color: var(--clr-white);
@@ -157,6 +169,10 @@ textarea{
 	span{
 		position: relative;
 		z-index: 1;
+		line-height: 1;
+	}
+	i{
+		font-size: 32px;
 	}
 	&::before{
 		content: '';
@@ -2813,11 +2829,32 @@ textarea{
 // -------- TheMessages -----------------
 .messages{
 	display: grid;
+	&__file-wrap{
+		position: relative;
+	}
+	&__file{
+		position: absolute;
+		inset: 0;
+	}
+	&__top{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-block-end: 16px;
+	}
+	&__textarea{
+		margin-block-end: 8px;
+		border: 1px solid var(--clr-gray);
+	}
+	&__btns{
+		display: flex;
+		justify-content: end;
+		gap: 8px;
+	}
 	&__link{
 		display: flex;
 		align-items: center;
 		gap: 0 16px;
-		margin-block-end: 16px;
 		color: var(--clr-gray);
 		transition: color var(--tr);
 		&::before{
@@ -2882,6 +2919,39 @@ textarea{
 	&__btn{
 		justify-self: end;
 	}	
+}
+.messages-table{
+	--columns: .7fr 1.3fr 1fr 1.1fr 24px;
+	--pad-i: 16px;
+	display: grid;
+	&__head{
+		display: grid;
+		grid-template-columns: var(--columns);	
+		margin-block-end: 16px;	
+		padding-inline: var(--pad-i);
+		color: var(--clr-gray);
+		span{
+			display: flex;
+			justify-content: center;
+		}
+	}
+	&__row{
+		display: grid;
+		grid-template-columns: var(--columns);	
+		padding: 24px var(--pad-i);
+		border-radius: 8px;
+		span{
+			display: flex;
+			justify-content: center;
+		}
+		&:nth-child(even){
+			background-color: var(--clr-gray-100);
+		}
+	}
+	&__btn{
+		justify-self: center;
+		margin-block-start: 16px;
+	}
 }
 // -------- TheVinZapros ---------------
 .vin-zapros{

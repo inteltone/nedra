@@ -22,7 +22,7 @@
 
 @font-face {
 	font-family: 'icomoon';
-	src: url('../fonts/icomoon.woff?xredyx') format('woff');
+	src:  url('../fonts/icomoon.woff?mjtlor') format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: block;
@@ -170,4 +170,8 @@
  .icon-edit:before {
 	content: "\e92a";
  }
+ .icon-clip:before {
+	content: "\e92b";
+ }
+ 
  
